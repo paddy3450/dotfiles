@@ -1,2 +1,2 @@
-# dot-fiels
-need to add emacs config
+#dotfiles
+The beginings of my dotfiles in groups to be managed by stow.

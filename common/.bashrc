@@ -1,8 +1,35 @@
-#
+#Patrick Wallace
 # ~/.bashrc
 #
 
+#only go in if in interactive mode
 [[ $- != *i* ]] && return
+
+#setting keys to vim mode
+set -o vi
+
+#tab complete after sudo
+complete -cf sudo
+
+#shell options
+shopt -s checkwinsize
+shopt -s expand_aliases
+shopt -s histappend
+
+#aliases
+alias ll='ls -alF --color=auto'
+alias ls='ls -l --color=auto'
+alias em='emacs -nw'
+alias asdf='worms -d 100 -n 10'
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias sudo='sudo '
+alias cp="cp -i"                          # confirm before overwriting something
+alias df='df -h'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+alias np='nano -w PKGBUILD'
+alias more=less
 
 colors() {
 	local fgc bgc vals seq0
@@ -91,32 +118,8 @@ fi
 
 unset use_color safe_term match_lhs sh
 
-
-
-alias cp="cp -i"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
-alias np='nano -w PKGBUILD'
-alias more=less
-
 xhost +local:root > /dev/null 2>&1
 
-complete -cf sudo
-
-# Bash won't get SIGWINCH if another process is in the foreground.
-# Enable checkwinsize so that bash will check the terminal size when
-# it regains control.  #65623
-# http://cnswww.cns.cwru.edu/~chet/bash/FAQ (E11)
-shopt -s checkwinsize
-
-shopt -s expand_aliases
-
-# export QT_SELECT=4
-
-# Enable history appending instead of overwriting.  #139609
-shopt -s histappend
-
-#
 # # ex - archive extractor
 # # usage: ex <file>
 ex ()
@@ -144,13 +147,3 @@ ex ()
 # better yaourt colors
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
 
-
-#additional aliases
-alias ll='ls -alF --color=auto'
-alias ls='ls -l --color=auto'
-alias em='emacs -nw'
-alias asdf='worms -d 100 -n 10'
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias sudo='sudo '

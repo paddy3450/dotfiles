@@ -112,9 +112,6 @@ bindsym $mod+Shift+p move container to workspace prev; workspace prev
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
-#monitor switch workspaces next / previous
-bindsym $mod+Ctrl+n move workspace to output left
-bindsym $mod+Ctrl+p move workspace to output right
 
 
 # split orientation
@@ -160,9 +157,9 @@ set $ws3 "3:Chat"
 set $ws4 "4:Games"
 set $ws5 "5:Steam"
 set $ws6 "6:Audio"
-set $ws7 "7:Misk"
-set $ws8 "8:Files"
-set $ws9 "9:Other"
+set $ws7 7
+set $ws8 8
+set $ws9 9
 set $ws10 "10:Music"
 
 
@@ -213,9 +210,6 @@ assign [class=".*hromium"] $ws2
 assign [class=".*rdour.*"] $ws6
 assign [class=".*iscord"] $ws3
 assign [class=".*inecraft"] $ws4
-assign [class=".*team"] $ws5
-assign [class=".*ransmission.*"] $ws8
-assign [class=".*utris.*"] $ws5
 for_window [class="Spotify"] move to workspace $ws10
 
 # Open specific applications in floating mode
@@ -312,13 +306,13 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
-# exec --no-startup-id start_conky_maia
+#exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec --no-startup-id /home/papa/.screenlayout/working.sh
-
+exec ~/.vga_monitor.sh
+exec "echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode" #macbook air fn keys
 
 
 
@@ -453,3 +447,18 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+
+# Pulse Audio controls
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# alsa Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+ #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%- #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle # mute sound
