@@ -1,2 +1,2 @@
-#dotfiles
-The beginings of my dotfiles in groups to be managed by stow.
+# dotfiles
+The beginings of my dotfiles, in packages to be managed by stow.
