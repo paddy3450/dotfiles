@@ -1,0 +1,21 @@
+#install
+make && sudo make clean install
+
+#clean up master branch
+make clean && rm -f config.h && git reset --hard origin/master
+
+#make branch
+git branch nameofbranch
+
+#switch bnanch
+git checkout nameofbranch
+
+#apply a patch
+git apply /pathtopatch
+
+#add changed files and commit
+
+#merge branch
+git merge branchname -m messagehere
+
+etc
