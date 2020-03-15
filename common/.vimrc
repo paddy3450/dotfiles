@@ -5,14 +5,63 @@
 	set hlsearch
 	set incsearch
 
+" file search for all subfolders
+	set path+=**
+" Display all matching files when tab completeing
+	set wildmenu
+
+	" NOW WE CAN
+	" - Hit tab to :find by partial match
+	" - Use * to make it fuzzy
+
 " Some basics:
+	set nocompatible
+	filetype on 
 	syntax on
 	set encoding=utf-8
 	set number relativenumber
 	set backspace=indent,eol,start
 
-"" Enable autocompletion:
-"	set wildmode=longest,list,full
+" Enable autocompletion:
+	"set wildmode=longest,list,full
+
+	" HIGHLIGHTS
+	" - ^x^n for JUST this file
+	" - ^x^f for filenames (works with our path trick!)
+	" - ^x^] for tags only
+	" - ^n for anything specified by the 'complete' option
+
+	" NOW WE CAN
+	" - Use ^n and ^p to go back and forth in the suggestion list
+
+
+" TAG JUMPING
+
+" Create the `tags` file (may need to install ctags first)
+	command! MakeTags !ctags -R .
+
+	" NOW WE CAN
+	" - Use ^] to jump to tag under cursor
+	" - Use g^] for ambiguous tags
+	" - Use ^t to jump back up the tag stack
+
+
+" netrw
+	let g:netrw_banner = 0
+	let g:netrw_liststyle = 3
+	let g:netrw_browse_split = 4
+	let g:netrw_altv = 1
+	let g:netrw_winsize = 25
+	nmap <unique> <c-r> <Plug>NetrwRefresh
+
+" Splits open on the right and bottom
+	set splitbelow splitright
+" Split navigation keys
+	nnoremap <C-h> <C-w><C-h>
+	nnoremap <C-j> <C-w><C-j>
+	nnoremap <C-k> <C-w><C-k>
+	nnoremap <C-l> <C-w><C-l>
+
 "
 "	autocmd BufRead,BufNewFile *.tex set filetype=tex
 "
