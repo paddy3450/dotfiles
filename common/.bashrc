@@ -39,6 +39,11 @@ alias pl=playerctl
 alias plm="playerctl metadata"
 alias uniup="rclone sync ~/Documents/2020 googledrive:UNI/2020" ## RCLONE GOOGLE DRIVE UNI WORK SYNC
 alias unidown="rclone sync googledrive:UNI/2020 ~/Documents/2020"
+alias b1="brightnessctl s 100"
+alias b2="brightnessctl s 500"
+alias b3="brightnessctl s 1000"
+alias b4="brightnessctl m"
+alias sus="systemctl suspend"
 
 # # ex - archive extractor
 # # usage: ex <file>
