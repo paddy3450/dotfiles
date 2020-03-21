@@ -23,7 +23,7 @@
 	set backspace=indent,eol,start
 
 " Enable autocompletion:
-	"set wildmode=longest,list,full
+	set wildmode=longest,list,full
 
 	" HIGHLIGHTS
 	" - ^x^n for JUST this file

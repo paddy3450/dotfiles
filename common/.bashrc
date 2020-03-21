@@ -45,6 +45,7 @@ alias b3="brightnessctl s 1000"
 alias b4="brightnessctl m"
 alias sus="systemctl suspend"
 
+
 # # ex - archive extractor
 # # usage: ex <file>
 ex ()
