@@ -1,9 +1,20 @@
 """ Patrck Wallace ~/.vimrc
 
+" Some basics:
+	set nocompatible
+	filetype on 
+	syntax on
+	set encoding=utf-8
+	set number relativenumber
+	set backspace=indent,eol,start
+	set noswapfile
+	let mapleader = " "
+
 "search
 	set ic
 	set hlsearch
 	set incsearch
+	set smartcase
 
 " file search for all subfolders
 	set path+=**
@@ -13,14 +24,6 @@
 	" NOW WE CAN
 	" - Hit tab to :find by partial match
 	" - Use * to make it fuzzy
-
-" Some basics:
-	set nocompatible
-	filetype on 
-	syntax on
-	set encoding=utf-8
-	set number relativenumber
-	set backspace=indent,eol,start
 
 " Enable autocompletion:
 	set wildmode=longest,list,full
@@ -61,6 +64,11 @@
 	nnoremap <C-j> <C-w><C-j>
 	nnoremap <C-k> <C-w><C-k>
 	nnoremap <C-l> <C-w><C-l>
+
+" Other remappings
+	nnoremap <leader>e :Lexplor<CR>
+	nnoremap <leader>o :only<CR>
+	nnoremap <leader>q :q<CR>
 
 "
 "	autocmd BufRead,BufNewFile *.tex set filetype=tex
