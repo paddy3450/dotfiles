@@ -43,7 +43,8 @@ alias b1="brightnessctl s 100"
 alias b2="brightnessctl s 500"
 alias b3="brightnessctl s 1000"
 alias b4="brightnessctl m"
-alias sus="systemctl suspend"
+alias cworld="curl https://corona-stats.online/"
+alias caus="curl https://corona-stats.online/australia"
 
 
 # # ex - archive extractor
