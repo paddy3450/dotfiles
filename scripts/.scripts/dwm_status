@@ -1,0 +1,42 @@
+#!/bin/bash
+
+
+print_volume() {
+	volume="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
+        if test "$volume" -gt 0
+        then
+        	echo -e "\uE05D${volume}"
+        else
+        	echo -e "Mute"
+        fi
+}
+
+print_load(){
+	cat /proc/loadavg
+}
+
+print_mem(){
+        memfree=$(($(grep -m1 'MemAvailable:' /proc/meminfo | awk '{print $2}') / 1024))
+        echo -e "$memfree"
+}
+
+print_date(){
+        date "+%a %m-%d %T%:::z"
+}
+
+print_temp(){
+        test -f /sys/class/thermal/thermal_zone0/temp || return 0
+        echo $(head -c 2 /sys/class/thermal/thermal_zone0/temp)C
+}
+
+
+while true
+do
+
+
+        xsetroot -name "$(print_mem) $(print_load) $(print_temp) $(print_volume) $(acpi) $(print_date)"
+
+        sleep 2
+
+done
+
