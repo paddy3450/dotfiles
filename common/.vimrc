@@ -69,6 +69,7 @@
 	nnoremap <leader>e :Lexplor<CR>
 	nnoremap <leader>o :only<CR>
 	nnoremap <leader>q :q<CR>
+	nnoremap <leader>s :nohl<CR>
 
 "
 "	autocmd BufRead,BufNewFile *.tex set filetype=tex
