@@ -31,6 +31,8 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias sudo='sudo '
 alias cp="cp -i"                          # confirm before overwriting something
+alias mv="mv -i"                          # confirm before overwriting something
+alias rm="rm -i"                          # confirm before removing something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias more=less
@@ -45,6 +47,12 @@ alias b3="brightnessctl s 1000"
 alias b4="brightnessctl m"
 alias cworld="curl https://corona-stats.online/"
 alias caus="curl https://corona-stats.online/australia"
+alias g="git"
+alias gs="git status"
+alias gb="git branch"
+alias gl="git log --oneline"
+alias ga="git add"
+alias gc="git commit -m"
 
 
 # # ex - archive extractor
