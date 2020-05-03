@@ -41,6 +41,7 @@ alias pl=playerctl
 alias plm="playerctl metadata"
 alias uniup="rclone sync ~/Documents/2020 googledrive:UNI/2020" ## RCLONE GOOGLE DRIVE UNI WORK SYNC
 alias unidown="rclone sync googledrive:UNI/2020 ~/Documents/2020"
+alias unicheck="rclone check googledrive:UNI/2020 ~/Documents/2020"
 alias b1="brightnessctl s 100"
 alias b2="brightnessctl s 500"
 alias b3="brightnessctl s 1000"
@@ -53,6 +54,7 @@ alias gb="git branch"
 alias gl="git log --oneline"
 alias ga="git add"
 alias gc="git commit -m"
+alias texsnips="vim -O ~/.vim/UltiSnips/tex.snippets ~/.vim/UltiSnips/tex.snippets.castel"
 
 
 # # ex - archive extractor
