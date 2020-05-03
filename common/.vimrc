@@ -101,4 +101,5 @@ call plug#end()
 	nnoremap <leader>e :Lexplor<CR>
 	nnoremap <leader>o :only<CR>
 	nnoremap <leader>q :q<CR>
+	nnoremap <leader>w :w<CR>
 	nnoremap <leader>s :nohl<CR>
