@@ -1,3 +1,5 @@
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+
 feh --bg-tile /home/papa/dotfiles/common/background.jpg
 
 picom &
