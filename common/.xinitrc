@@ -1,6 +1,6 @@
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
-feh --bg-tile /home/papa/dotfiles/common/background.jpg
+feh --bg-tile /home/papa/.config/background.jpg
 
 xbindkeys &
 
