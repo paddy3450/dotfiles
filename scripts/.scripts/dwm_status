@@ -12,29 +12,37 @@ print_volume() {
 }
 
 print_load(){
-	cat /proc/loadavg
+	echo "Load:$(cat /proc/loadavg)"
 }
 
 print_mem(){
-        memfree=$(($(grep -m1 'MemAvailable:' /proc/meminfo | awk '{print $2}') / 1024))
-        echo -e "$memfree"
+        memfree=$(($(grep -m1 'MemAvailable:' /proc/meminfo | awk '{print $2}') / 1024 ))
+        echo -e "Free:$memfree Mb"
 }
 
 print_date(){
-        date "+%a %m-%d %T%:::z"
+        date "+%a %d-%m %T"
 }
 
 print_temp(){
         test -f /sys/class/thermal/thermal_zone0/temp || return 0
-        echo $(head -c 2 /sys/class/thermal/thermal_zone0/temp)C
+        echo "Temp:$(head -c 2 /sys/class/thermal/thermal_zone0/temp)C"
 }
 
+print_power() {
+        if hash acpi 2>/dev/null
+        then
+		echo -e "Power:$(acpi)"
+        else
+		echo -e ";)"
+        fi
+}
 
 while true
 do
 
 
-        xsetroot -name "$(print_mem) $(print_load) $(print_temp) $(print_volume) $(acpi) $(print_date)"
+        xsetroot -name "|  $(print_mem)  |  $(print_load)  |  $(print_temp)  |  $(print_volume)  |  $(print_power)  |  $(print_date)  "
 
         sleep 2
 
