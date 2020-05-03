@@ -2,6 +2,8 @@
 
 feh --bg-tile /home/papa/dotfiles/common/background.jpg
 
+xbindkeys &
+
 picom &
 
 dwm_status &

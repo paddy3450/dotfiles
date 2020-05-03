@@ -32,7 +32,7 @@ print_temp(){
 print_power() {
         if hash acpi 2>/dev/null
         then
-		echo -e "Power:$(acpi)"
+		echo -e "$(acpi)"
         else
 		echo -e ";)"
         fi
