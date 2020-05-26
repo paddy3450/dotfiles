@@ -42,7 +42,7 @@ while true
 do
 
 
-        xsetroot -name "|  $(print_mem)  |  $(print_load)  |  $(print_temp)  |  $(print_volume)  |  $(print_power)  |  $(print_date)  "
+        xsetroot -name "| $(print_load)| $(print_mem)| $(print_temp)| $(print_volume)| $(print_power)| $(print_date)"
 
         sleep 2
 

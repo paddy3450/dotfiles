@@ -1,0 +1,28 @@
+# Increase volume
+#"pactl set-sink-volume 0 +5"
+"amixer set Master 5%+"
+   XF86AudioRaiseVolume
+
+# Decrease volume
+#"pactl set-sink-volume 0 -5"
+"amixer set Master 5%-"
+   XF86AudioLowerVolume
+
+# Mute volume
+#"pactl set-sink-mute 0 toggle"
+"amixer set Master toggle"
+   XF86AudioMute
+
+# Increase backlight
+#"xbacklight -inc 10"
+"brightnessctl s +10%"
+   XF86MonBrightnessUp
+
+# Decrease backlight
+#"xbacklight -dec 10"
+"brightnessctl s 10%-"
+   XF86MonBrightnessDown
+
+# print screen with inagemagic import
+"import -window root ~/Pictures/$(date '+%Y%m%d-%H%M%S').png"
+XF86LaunchB
