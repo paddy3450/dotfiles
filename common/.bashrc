@@ -55,6 +55,7 @@ alias gl="git log --oneline"
 alias ga="git add"
 alias gc="git commit -m"
 alias texsnips="vim -O ~/.vim/UltiSnips/tex.snippets ~/.vim/UltiSnips/tex.snippets.castel"
+alias ltuvpn="sudo f5fpc --start -t connect.latrobe.edu.au -u 'STUDENTS\18918787' -p "
 
 
 # # ex - archive extractor
