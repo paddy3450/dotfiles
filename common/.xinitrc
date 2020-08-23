@@ -4,7 +4,7 @@ feh --bg-tile ~/.config/wallpapers/background.jpg
 
 xbindkeys &
 
-picom &
+picom -c &
 
 dwm_status &
 
@@ -13,6 +13,7 @@ if grep -q 'BigPapa' /etc/hostname; then
 
 		monitors
 		dwm > /dev/null 2>&1
+		monitors
 	done
 fi
 
