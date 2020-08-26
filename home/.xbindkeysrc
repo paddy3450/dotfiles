@@ -42,6 +42,10 @@ Shift+Mod4 + r
 "import -window root ~/Pictures/$(date '+%Y%m%d-%H%M%S').png"
 Print
 
+# set wallpaper and theme from and image in wallpaper folder
+"wtheme"
+Shift+Mod4+slash
+
 #MEDIA
 #Play-Pause
 "playerctl play-pause"

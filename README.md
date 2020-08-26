@@ -7,7 +7,7 @@ stow -v -R -t ~ foldertostow
 -R (restow, unstow then stow again)  
 -v verbose  
 
-#Keyboard shortcuts
+#Keyboard shortcuts  
 *Programs Launching*  
 Mod4 + Shift + c	      Web Browser (chromium)  
 Mod4 + Shift + f	      File Browser (nemo)  
@@ -18,6 +18,9 @@ Mod4 + Shift + d	      Discord
 Mod4 + Shift + g	      Gimp  
 Mod4 + Shift + b	      OBS  
 Mod4 + Shift + r	      DAW (reaper)  
+
+*other*  
+Shift+Mod4+slash 	Random wallpaper and theme
 
 *Media*  
 Mod4 + Up		Stop playback  
