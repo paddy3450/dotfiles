@@ -3,13 +3,13 @@
 To quickly move into place and manage my dotfiels I use stow. Instead of copying the files over stow places a link that links back to the file in the cloned git directory. With any new file or structure change just run stow again to add/update the links.  
 
 stow -v -R -t ~ foldertostow  
--t <target>   
+-t target   
 -R (restow, unstow then stow again)  
 -v verbose  
 
 #Keyboard shortcuts
 *Programs Launching*  
-Mod4 + Shift + c	      Web Browser (chromim)  
+Mod4 + Shift + c	      Web Browser (chromium)  
 Mod4 + Shift + f	      File Browser (nemo)  
 Mod4 + Shift + t	      Torrent client (transmission)  
 Mod4 + Shift + m	      Music player (Spotify)  
