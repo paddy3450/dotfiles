@@ -1,3 +1,65 @@
+#PROGRAM LAUNCHING
+
+#Internet Browser
+#"firefox"
+"chromium"
+Shift+Mod4 + c
+
+#GUI File Browser
+"nemo"
+Shift+Mod4 + f
+
+#Torrent client
+"transmission-gtk"
+Shift+Mod4 + t
+
+#Music Player
+"spotify"
+Shift+Mod4 + m
+
+#Steam
+"steam"
+Shift+Mod4 + s
+
+#Discord
+"discord"
+Shift+Mod4 + d
+
+#Gimp
+"gimp"
+Shift+Mod4 + g
+
+#OBS
+"obs"
+Shift+Mod4 + b
+
+#Digital Audio Workstation
+"reaper-bin"
+Shift+Mod4 + r
+
+# OTHER
+# print screen with inagemagic import
+"import -window root ~/Pictures/$(date '+%Y%m%d-%H%M%S').png"
+Print
+
+#MEDIA
+#Play-Pause
+"playerctl play-pause"
+Mod4+Down
+
+#next
+"playerctl next"
+Mod4+Right
+
+#previous
+"playerctl previous"
+Mod4+Left
+
+#stop
+"playerctl stop"
+Mod4+Up
+
+# USED FOR MACBOOKAIR
 # Increase volume
 #"pactl set-sink-volume 0 +5"
 "amixer set Master 5%+"
@@ -22,7 +84,3 @@
 #"xbacklight -dec 10"
 "brightnessctl s 10%-"
    XF86MonBrightnessDown
-
-# print screen with inagemagic import
-"import -window root ~/Pictures/$(date '+%Y%m%d-%H%M%S').png"
-XF86LaunchB
