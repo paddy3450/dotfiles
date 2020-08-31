@@ -92,29 +92,36 @@ Mod4 + Shift + q	Quit DWM
 - git stow xorg-server xorg-xinit xorg-xsetroot xbindkeys dmenu picom feh noto-fonts python-pywal
 - .conf https://github.com/paddy3450/dontfiles
 - dwm https://github.com/paddy3450/dwm
-- st https://github.com/paddy3450/st
+- st https://github.com/paddy3450/st  
 *the following as needed*
 - acpi
+- atool zip
+- blender
+- cava
 - chromium
 - discord
 - firefox
+- gimp
 - htop
+- inkscape
 - nemo
 - neofetch
 - obs
 - openssh
+- playerctl
 - pulseaudio pulseaudio-alsa pamixer
 - ranger
 - rclone
 - steam
+- texlive-most
 - tmux
+- transmission-gtk
 - vlc
 - zathura
 - zathura-pdf-mupdf
-- zip
 - lxappearance
 - (some dark gtk theme...?) arc-solid-gtk-theme materia-gtk-theme adapta-gtk-theme
 *AUR*
-- reaper
+- reaper-bin
 - spotify
 - yay 
