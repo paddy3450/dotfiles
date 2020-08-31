@@ -61,3 +61,60 @@ Mod4 + minus		Decrease gaps
 Mod4 + equal		Increase gaps  
 Mod4 + Shift + equal	Set gaps to zero  
 Mod4 + Shift + q	Quit DWM  
+
+#Arch install
+- Boot an arch live usb
+- Connect to the internet (wifi-menu)
+- Partition the disk with fdisk (Swap and UEFI partition if needed)
+- Format partitions 'mkfs.ext4 /dev/root_partition'
+- Swap setup (if used) 'mkswap /dev/swap_partition' 'swapon /dev/swap_partition'
+- Mount root to /mnt and UEFI to /mnt/efi
+- Install 'pacstrap /mnt base base-devel linux linux-firmware vim dhcpcd networkmanager wpa_supplicant man-db man-pages git'
+- Gernerate fstab 'genfstab -U /mnt >> /mnt/etc/fstab'
+- Chroot and finish setup 'arch-chroot /mnt'
+- Set timezone 'ln -sf /usr/share/zoneinfo/Region/City /etc/localtime'
+- Sync time 'timedatectl set-ntp true' update hardware clock 'hwclock --systohc'
+- Set local, uncomment needed lines in /etc/locale.gen then run 'locale-gen'
+- Set LANG, edit /etc/locale.conf and add 'LANG=en_US.UTF-8' (or desired language)
+- Set keyboard layout, etit /etc/vconsole.conf and add 'KEYMAP=us'
+- Set hostname, edit /etc/hostname
+- Set hosts, edit /etc/hosts and add lines '127.0.0.1 localhost' '::1 localhost'
+- Set root password run 'passwd'
+- Install grub 'pacman -S grub' then follow setup on the wiki
+- Reboot
+- Setup network 'systemctl enable NetworkManager.service' 'systemctl start NetworkManager.service' 'nmtui'
+- User setup 'useradd -m -g wheel <username>' 'passwd <username>' edit /etc/sudoers so wheel can use sudo
+- At this point install a DE or do whatever
+- I grab my dotfiles and install a few packages
+
+#Packages I use
+ *Desktop environment*
+- git stow xorg-server xorg-xinit xorg-xsetroot xbindkeys dmenu picom feh noto-fonts python-pywal
+- .conf https://github.com/paddy3450/dontfiles
+- dwm https://github.com/paddy3450/dwm
+- st https://github.com/paddy3450/st
+*the following as needed*
+- acpi
+- chromium
+- discord
+- firefox
+- htop
+- nemo
+- neofetch
+- obs
+- openssh
+- pulseaudio pulseaudio-alsa pamixer
+- ranger
+- rclone
+- steam
+- tmux
+- vlc
+- zathura
+- zathura-pdf-mupdf
+- zip
+- lxappearance
+- (some dark gtk theme...?) arc-solid-gtk-theme materia-gtk-theme adapta-gtk-theme
+*AUR*
+- reaper
+- spotify
+- yay 
