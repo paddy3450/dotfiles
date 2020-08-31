@@ -39,7 +39,7 @@ Mod4 + o		Decrease master window count
 Mod4 + h		Move window split left  
 Mod4 + l		Move window split right  
 Mod4 + Return		Set window as master  
-Mod4 + Tab		Swithch to last used tag  
+Mod4 + Tab		Switch to last used tag  
 Mod4 + x		Kill the current window  
 Mod4 + t		Set layout tiled master  
 Mod4 + f		Set layout floating    
@@ -50,10 +50,10 @@ Mod4 + space		Switch to last used layout
 Mod4 + Shift + space	Toggle floating on current window  
 Mod4 + 0		View windows on all tags  
 Mod4 + <num>		View windows on tag <num>  
-Mod4 + Shift + 0	Add currnet window to all tags  
-Mod4 + Shift + <num>	Add currnet window to tag <num>  
-Mod4 + p		Set foucs down a monitor  
-Mod4 + n		Set foucs up a monitor  
+Mod4 + Shift + 0	Add current window to all tags  
+Mod4 + Shift + <num>	Add current window to tag <num>  
+Mod4 + p		Set focus down a monitor  
+Mod4 + n		Set focus up a monitor  
 Mod4 + Shift + p	Move current window down a monitor  
 Mod4 + Shift + n	Move current window up a monitor  
 Mod4 + F5		Reload colours from .xresources  
@@ -87,10 +87,10 @@ Mod4 + Shift + q	Quit DWM
 - At this point install a DE or do whatever
 - I grab my dotfiles and install a few packages
 
-#Packages I use
+#Packages I use  
  *Desktop environment*
 - git stow xorg-server xorg-xinit xorg-xsetroot xbindkeys dmenu picom feh noto-fonts python-pywal
-- .conf https://github.com/paddy3450/dontfiles
+- .conf https://github.com/paddy3450/dotfiles
 - dwm https://github.com/paddy3450/dwm
 - st https://github.com/paddy3450/st  
 *the following as needed*
