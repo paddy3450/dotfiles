@@ -63,20 +63,19 @@ Mod4+Left
 "playerctl stop"
 Mod4+Up
 
-# USED FOR MACBOOKAIR
 # Increase volume
 #"pactl set-sink-volume 0 +5"
-"amixer set Master 5%+"
+"pamixer -i 5"
    XF86AudioRaiseVolume
 
 # Decrease volume
 #"pactl set-sink-volume 0 -5"
-"amixer set Master 5%-"
+"pamixer -d 5"
    XF86AudioLowerVolume
 
 # Mute volume
 #"pactl set-sink-mute 0 toggle"
-"amixer set Master toggle"
+"pamixer -t"
    XF86AudioMute
 
 # Increase backlight
@@ -88,3 +87,19 @@ Mod4+Up
 #"xbacklight -dec 10"
 "brightnessctl s 10%-"
    XF86MonBrightnessDown
+
+## USED FOR MACBOOKAIR
+## Increase volume
+##"pactl set-sink-volume 0 +5"
+#"amixer set Master 5%+"
+#   XF86AudioRaiseVolume
+#
+## Decrease volume
+##"pactl set-sink-volume 0 -5"
+#"amixer set Master 5%-"
+#   XF86AudioLowerVolume
+#
+## Mute volume
+##"pactl set-sink-mute 0 toggle"
+#"amixer set Master toggle"
+#   XF86AudioMute
