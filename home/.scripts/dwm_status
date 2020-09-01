@@ -43,11 +43,15 @@ print_power() {
         fi
 }
 
+print_ip() {
+	echo "$(nmcli | grep inet4 | cut -d' ' -f 2)"	
+}
+
 while true
 do
 
 
-        xsetroot -name "|$(print_load)|$(print_mem)|$(print_temp)|$(print_volume)|$(print_power)|$(print_date)"
+	xsetroot -name "|$(print_ip)|$(print_load)|$(print_mem)|$(print_temp)|$(print_volume)|$(print_power)|$(print_date)"
 
         sleep 2
 
