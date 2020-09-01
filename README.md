@@ -109,7 +109,7 @@ Mod4 + Shift + q	Quit DWM
 - obs
 - openssh
 - playerctl
-- pulseaudio pulseaudio-alsa pamixer
+- pulseaudio pulseaudio-alsa pamixer alsa-utils
 - ranger
 - rclone
 - steam
@@ -119,6 +119,7 @@ Mod4 + Shift + q	Quit DWM
 - vlc
 - zathura
 - zathura-pdf-mupdf
+- xournalpp
 - lxappearance
 - (some dark gtk theme...?) arc-solid-gtk-theme materia-gtk-theme adapta-gtk-theme
 *AUR*
