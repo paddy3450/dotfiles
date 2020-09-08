@@ -2,22 +2,26 @@
 
 
 print_volume() {
-	volume="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
-        if test "$volume" -gt 0
-        then
-        	echo -e "\uE05D${volume}"
-        else
-        	echo -e "Mute"
-        fi
+	volume="$(pamixer --get-volume-human)"
+	echo -e "$volume"
+	#volume="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
+        #if test "$volume" -gt 0
+        #then
+        #	echo -e "\uE05D${volume}"
+        #else
+        #	echo -e "Mute"
+        #fi
 }
 
 print_load(){
-	echo "Load:$(cat /proc/loadavg)"
+	echo "$(cat /proc/loadavg | cut -d' ' --fields=1,2,3)"
+	#echo "Load:$(cat /proc/loadavg)"
 }
 
 print_mem(){
         memfree=$(($(grep -m1 'MemAvailable:' /proc/meminfo | awk '{print $2}') / 1024 ))
-        echo -e "Free:$memfree Mb"
+        echo -e "$memfree Mb"
+        #echo -e "Free:$memfree Mb"
 }
 
 print_date(){
@@ -26,7 +30,8 @@ print_date(){
 
 print_temp(){
         test -f /sys/class/thermal/thermal_zone0/temp || return 0
-        echo "Temp:$(head -c 2 /sys/class/thermal/thermal_zone0/temp)C"
+        echo "$(head -c 2 /sys/class/thermal/thermal_zone0/temp)C"
+        #echo "Temp:$(head -c 2 /sys/class/thermal/thermal_zone0/temp)C"
 }
 
 print_power() {
@@ -38,11 +43,15 @@ print_power() {
         fi
 }
 
+print_ip() {
+	echo "$(nmcli | grep inet4 | cut -d' ' -f 2)"	
+}
+
 while true
 do
 
 
-        xsetroot -name "| $(print_load)| $(print_mem)| $(print_temp)| $(print_volume)| $(print_power)| $(print_date)"
+	xsetroot -name "|$(print_ip)|$(print_load)|$(print_mem)|$(print_temp)|$(print_volume)|$(print_power)|$(print_date)"
 
         sleep 2
 
