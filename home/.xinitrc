@@ -1,5 +1,9 @@
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
+export EDITOR=vim st
+export TERMCMD=urxvtc
+export BROWSER=chromium
+
 xbindkeys &
 
 picom -c &
