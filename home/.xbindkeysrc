@@ -63,6 +63,22 @@ Mod4+Left
 "playerctl stop"
 Mod4+Up
 
+#Play-Pause-spotify
+"playerctl -p spotify play-pause"
+Shift+Mod4+Down
+
+#next-spotify
+"playerctl -p spotify next"
+Shift+Mod4+Right
+
+#previous-spotify
+"playerctl -p spotify previous"
+Shift+Mod4+Left
+
+#stop-spotify
+"playerctl -p spotify stop"
+Shift+Mod4+Up
+
 # Increase volume
 #"pactl set-sink-volume 0 +5"
 "pamixer -i 5"
