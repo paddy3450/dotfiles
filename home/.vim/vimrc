@@ -1,4 +1,4 @@
-""" Patrick Wallace ~/.vimrc
+""" Patrick Wallace ~/.vim/vimrc
 
 " Some basics:
 	set nocompatible
@@ -37,50 +37,16 @@ call plug#end()
 
 
 "search
-	set ic
+	set ignorecase
 	set hlsearch
 	set incsearch
 	set smartcase
-
-" file search for all subfolders
-	set path+=**
-" Display all matching files when tab completing
+	set path+=.,**
 	set wildmenu
-
-	" NOW WE CAN
-	" - Hit tab to :find by partial match
-	" - Use * to make it fuzzy
-
-" Enable autocompletion:
 	set wildmode=longest,list,full
-
-	" HIGHLIGHTS
-	" - ^x^n for JUST this file
-	" - ^x^f for filenames (works with our path trick!)
-	" - ^x^] for tags only
-	" - ^n for anything specified by the 'complete' option
-
-	" NOW WE CAN
-	" - Use ^n and ^p to go back and forth in the suggestion list
-
-
-" spell checking
 	map <F5> :setlocal spell!<CR>
 	set spelllang=en_gb
-	" ]s and [s next and previous error, z= suggestions zg add to
-	" dictionary zug remove from dictionary
-
-" TAG JUMPING
-
-" Create the `tags` file (may need to install ctags first)
 	command! MakeTags !ctags -R .
-
-	" NOW WE CAN
-	" - Use ^] to jump to tag under cursor
-	" - Use g^] for ambiguous tags
-	" - Use ^t to jump back up the tag stack
-
-
 " netrw
 	let g:netrw_banner = 0
 	let g:netrw_liststyle = 3
@@ -88,7 +54,6 @@ call plug#end()
 	let g:netrw_altv = 1
 	let g:netrw_winsize = 25
 	nmap <unique> <c-r> <Plug>NetrwRefresh
-
 " Splits open on the right and bottom
 	set splitbelow splitright
 " Split navigation keys
@@ -96,10 +61,11 @@ call plug#end()
 	nnoremap <C-j> <C-w><C-j>
 	nnoremap <C-k> <C-w><C-k>
 	nnoremap <C-l> <C-w><C-l>
-
 " Other remapping
 	nnoremap <leader>e :Lexplor<CR>
 	nnoremap <leader>o :only<CR>
 	nnoremap <leader>q :q<CR>
 	nnoremap <leader>w :w<CR>
 	nnoremap <leader>s :nohl<CR>
+	nnoremap <leader>nn :set number!<CR>
+	nnoremap <leader>rn :set relativenumber!<CR>
