@@ -94,6 +94,11 @@ Shift+Mod4+Up
 "pamixer -t"
    XF86AudioMute
 
+# Mute volume Alt version
+#"pactl set-sink-mute 0 toggle"
+"pamixer -t"
+   Control+Shift+Mod4+Down
+
 # Mute mic
 #"pactl set-source-output-mute 0 toggle"
 "amixer set Capture toggle"
