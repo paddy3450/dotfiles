@@ -9,10 +9,9 @@
 set -o vi
 
 #prompt
-#export PS1="\[\e[36m\][\[\e[m\]\[\e[35m\]\u\[\e[m\]@\[\e[35m\]\h\[\e[m\] \[\e[33m\]\W\[\e[m\]\[\e[36m\]]\[\e[m\] "
-#export PS1="\[\e[36m\][\[\e[m\]\[\e[33m\]\u\[\e[m\]\[\e[36m\]@\[\e[m\]\[\e[33m\]\h\[\e[m\] \[\e[33m\]\W\[\e[m\]\[\e[36m\]]\[\e[m\]\[\e[36m\]\\$\[\e[m\] "
-#export PS1="\[\e[32m\][\[\e[m\]\[\e[33m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[33m\]\h\[\e[m\] \[\e[33m\]\W\[\e[m\]\[\e[32m\]]\[\e[m\]\[\e[32m\]\\$\[\e[m\] "
 export PS1="\[\e[34m\][\[\e[m\]\[\e[33m\]\u\[\e[m\]\[\e[33m\]@\[\e[m\]\[\e[33m\]\h\[\e[m\] \[\e[33m\]\W\[\e[m\]\[\e[34m\]]\[\e[m\]\[\e[34m\]\\$\[\e[m\] "
+
+export EDITOR=vim
 
 #tab complete after sudo
 complete -cf sudo
@@ -37,15 +36,12 @@ alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias more=less
 alias rr=ranger
+alias nn="nnn -ed"
 alias pl=playerctl
 alias plm="playerctl metadata"
 alias uniup="rclone sync ~/Documents/2020 googledrive:UNI/2020" ## RCLONE GOOGLE DRIVE UNI WORK SYNC
 alias unidown="rclone sync googledrive:UNI/2020 ~/Documents/2020"
 alias unicheck="rclone check googledrive:UNI/2020 ~/Documents/2020"
-alias b1="brightnessctl s 100"
-alias b2="brightnessctl s 500"
-alias b3="brightnessctl s 1000"
-alias b4="brightnessctl m"
 alias cworld="curl https://corona-stats.online/"
 alias caus="curl https://corona-stats.online/australia"
 alias g="git"
