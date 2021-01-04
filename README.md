@@ -9,24 +9,29 @@ stow -v -R -t ~ foldertostow
 
 #Keyboard shortcuts  
 *Programs Launching*  
-Mod4 + Shift + c	      Web Browser (chromium)  
-Mod4 + Shift + f	      File Browser (nemo)  
-Mod4 + Shift + t	      Torrent client (transmission)  
-Mod4 + Shift + m	      Music player (Spotify)  
-Mod4 + Shift + s	      Steam  
-Mod4 + Shift + d	      Discord  
-Mod4 + Shift + g	      Gimp  
-Mod4 + Shift + b	      OBS  
-Mod4 + Shift + r	      DAW (reaper)  
+Mod4 + Shift + c      Web Browser (chromium)  
+Mod4 + Shift + f      File Browser (nemo)  
+Mod4 + Shift + t      Torrent client (transmission)  
+Mod4 + Shift + m      Music player (Spotify)  
+Mod4 + Shift + s      Steam  
+Mod4 + Shift + d      Discord  
+Mod4 + Shift + g      Gimp  
+Mod4 + Shift + b      OBS  
+Mod4 + Shift + r      DAW (reaper)  
 
 *other*  
-Shift+Mod4+slash 	Random wallpaper and theme
+Mod4 + Shift + slash 	Random wallpaper and theme
+Mod4 + Shift + x	Power menu
 
 *Media*  
 Mod4 + Up		Stop playback  
 Mod4 + Down		Play/Pause  
 Mod4 + Left		Previous track  
 Mod4 + Right		Next track  
+Mod4 + Shift + Up	Spotify Stop playback  
+Mod4 + Shift + Down	Spotify Play/Pause  
+Mod4 + Shift + Left	Spotify Previous track  
+Mod4 + Shift + Right	Spotify Next track  
 
 *Window Manager (DWM)*  
 Mod4 + d		Launcher (dmenu)  

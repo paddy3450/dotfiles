@@ -46,6 +46,11 @@ Print
 "wtheme"
 Shift+Mod4+slash
 
+#Power menu
+"power.sh"
+Shift+Mod4 + x
+
+
 #MEDIA
 #Play-Pause
 "playerctl play-pause"
