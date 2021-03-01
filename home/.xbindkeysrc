@@ -1,9 +1,10 @@
 #PROGRAM LAUNCHING
 
 #Internet Browser
-#"firefox"
 "chromium"
 Shift+Mod4 + c
+"firefox"
+Shift+Mod4 + v
 
 #GUI File Browser
 "nemo"
