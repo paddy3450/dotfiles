@@ -4,7 +4,7 @@
 "chromium"
 Shift+Mod4 + c
 "firefox"
-Shift+Mod4 + v
+Shift+Mod4 + b
 
 #GUI File Browser
 "nemo"
@@ -32,11 +32,15 @@ Shift+Mod4 + g
 
 #OBS
 "obs"
-Shift+Mod4 + b
+Shift+Mod4 + o
 
 #Digital Audio Workstation
 "reaper"
 Shift+Mod4 + r
+
+#Virtual machines
+"virt-manager"
+Shift+Mod4 + v
 
 # OTHER
 # print screen with inagemagic import
