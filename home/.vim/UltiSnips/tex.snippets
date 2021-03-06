@@ -20,12 +20,27 @@ endglobal
 snippet template "Basic template" b
 \documentclass[a4paper]{article}
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
 \usepackage{textcomp}
 \usepackage{babel}
 \usepackage{amsmath, amssymb}
 \usepackage[margin=1in]{geometry}
+
+%theorems
+\newtheorem{definition}{Definition}
+\newtheorem*{eg}{Example}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{problem}{Problem}
+\newtheorem*{observe}{Observe}
+\newtheorem*{property}{Property}
+\newtheorem*{intuition}{Intuition}
+\newtheorem*{proof}{Proof}
+\newtheorem{prop}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
 
 % figure support
 \usepackage{import}
@@ -90,7 +105,7 @@ endsnippet
 snippet fig "Figure environment" b
 \begin{figure}[${1:htpb}]
 	\centering
-	${2:\includegraphics[width=0.8\textwidth]{$3}}
+	\incfig{$3}
 	\caption{${4:$3}}
 	\label{fig:${5:${3/\W+/-/g}}}
 \end{figure}
@@ -529,7 +544,7 @@ snippet ~~ "~" iA
 endsnippet
 
 context "math()"
-snippet set "set" wA
+snippet sett "set" wA
 \\{$1\\} $0
 endsnippet
 
