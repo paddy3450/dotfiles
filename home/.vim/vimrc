@@ -35,6 +35,8 @@ call plug#begin()
 	    hi Conceal ctermbg=none
 
 	Plug 'junegunn/goyo.vim'
+		let g:goyo_width=100
+	Plug 'jalvesaq/Nvim-R'
 call plug#end()
 
 
