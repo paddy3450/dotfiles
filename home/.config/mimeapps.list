@@ -5,7 +5,9 @@ application/pdf=org.pwmt.zathura.desktop
 application/epub+zip=org.pwmt.zathura.desktop
 video/x-matroska=mpv.desktop
 video/mp4=mpv.desktop
+image/svg=xml=org.inkscape.Inkscape.desktop
 
 [Added Associations]
 video/x-matroska=mpv.desktop;
 video/mp4=mpv.desktop;
+image/svg=xml=org.inkscape.Inkscape.desktop;

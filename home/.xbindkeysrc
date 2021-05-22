@@ -89,6 +89,30 @@ Shift+Mod4+Left
 "playerctl -p spotify stop"
 Shift+Mod4+Up
 
+#Play-Pause-mpd
+"mpc toggle"
+Alt+Mod4+Down
+
+#next-mpd
+"mpc next"
+Alt+Mod4+Right
+
+#previous-mpd
+"mpc prev"
+Alt+Mod4+Left
+
+#stop-mpd
+"mpc stop"
+Alt+Mod4+Up
+
+# Increase volume MPD
+"mpc volume +5"
+   Control+alt+Mod4+Up
+
+# Decrease volume MPD
+"mpc volume -5"
+   Control+alt+Mod4+Down
+
 # Increase volume
 #"pactl set-sink-volume 0 +5"
 "pamixer -i 5"
