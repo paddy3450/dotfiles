@@ -7,7 +7,7 @@
 	set encoding=utf-8
 	set number relativenumber
 	set backspace=indent,eol,start
-	set noswapfile
+	set swapfile
 	let mapleader = " "
 	let maplocalleader = " "
 
@@ -75,6 +75,7 @@ call plug#end()
 	nnoremap <leader>nnr :set relativenumber!<CR>
 	nnoremap <leader>tt :sp<CR>:term<CR>
 	nnoremap <leader>go :Goyo <CR>
+	nnoremap <leader>m @
 	tnoremap <C-w>h <C-\><C-n><C-w>h
 	tnoremap <C-w>j <C-\><C-n><C-w>j
 	tnoremap <C-w>k <C-\><C-n><C-w>k
