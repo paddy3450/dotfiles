@@ -40,9 +40,9 @@ print_temp(){
 print_power() {
         if hash acpi 2>/dev/null
         then
-		echo -e "$(acpi)"
+		echo -e "|$(acpi)"
         else
-		echo -e ";)"
+		echo -e ""
         fi
 }
 
@@ -50,11 +50,17 @@ print_ip() {
 	echo "$(nmcli | grep inet4 | cut -d' ' -f 2)"	
 }
 
+print_music() {
+	if  mpc | grep -q playing; then
+		echo "|$(mpc current)"	
+	fi
+}
+
 while true
 do
 
 
-	xsetroot -name "|$(print_ip)|$(print_load)|$(print_mem)|$(print_temp)|$(print_volume)|$(print_power)|$(print_date)"
+	xsetroot -name "$(print_music)|$(print_ip)|$(print_load)|$(print_mem)|$(print_temp)|$(print_volume)$(print_power)|$(print_date)"
 
         sleep 2
 
