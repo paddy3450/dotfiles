@@ -54,6 +54,9 @@ print_music() {
 	if  mpc | grep -q playing; then
 		echo "|$(mpc current)"	
 	fi
+	if  playerctl status -p spotify | grep -q Playing; then
+		echo "|$(playerctl -p spotify metadata --format '{{artist}} - {{title}}')"
+	fi
 }
 
 while true
