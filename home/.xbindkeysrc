@@ -14,9 +14,13 @@ Shift+Mod4 + f
 "transmission-gtk"
 Shift+Mod4 + t
 
-#Music Player
+#Music Player spotify
 "spotify"
 Shift+Mod4 + m
+
+#Music Player cantata
+"cantata"
+Control+Shift+Mod4 + m
 
 #Steam
 "steam"
