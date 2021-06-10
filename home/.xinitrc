@@ -10,6 +10,8 @@ picom -c &
 
 dwm_status &
 
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+
 feh --bg-tile ~/.config/wallpapers/background.jpg
 
 if grep -q 'BigPapa' /etc/hostname; then

@@ -3,3 +3,16 @@ wallpapers=(~/.config/wallpapers/*)
 IMG=$(find ~/.config/wallpapers/ -type f | shuf -n 1)
 wal -n -i $IMG
 feh --bg-tile $IMG
+cp ~/.cache/wal/colors.Xresources ~/.Xresources
+mkdir -pv $HOME/.config/zathura && genzathurarc > $HOME/.config/zathura/zathurarc
+. $HOME/.cache/wal/colors.sh
+cat << EOF >> $HOME/.Xresources
+
+!DWM colours
+dwm.normbordercolor: 	$background
+dwm.normbgcolor:	$background
+dwm.normfgcolor:	$foreground
+dwm.selbordercolor:	$color0
+dwm.selbgcolor:		$color0
+dwm.selfgcolor:		$color7
+EOF
