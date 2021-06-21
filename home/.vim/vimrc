@@ -48,6 +48,7 @@ call plug#end()
 	set path+=.,**
 	set wildmenu
 	set wildmode=longest,list,full
+	set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico,*.pdf,*.psd
 	map <F5> :setlocal spell!<CR>
 	set spelllang=en_gb
 	command! MakeTags !ctags -R .
@@ -71,10 +72,11 @@ call plug#end()
 	nnoremap <leader>q :q<CR>
 	nnoremap <leader>w :w<CR>
 	nnoremap <leader>s :nohl<CR>
+	nnoremap <leader>f :find 
 	nnoremap <leader>nn :set number! relativenumber!<CR>
 	nnoremap <leader>nu :set number!<CR>
 	nnoremap <leader>nr :set relativenumber!<CR>
-	nnoremap <leader>tt :sp<CR>:term<CR>
+	nnoremap <leader>tt :sp<CR>:term<CR>:set nonumber norelativenumber<CR>i
 	nnoremap <leader>go :Goyo <CR>
 	nnoremap <leader>m @
 	tnoremap <C-w>h <C-\><C-n><C-w>h
