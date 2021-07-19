@@ -23,8 +23,8 @@ shopt -s expand_aliases
 shopt -s histappend
 
 #aliases
-alias ll='ls -alF --color=auto'
-alias ls='ls -l --color=auto'
+alias ll='ls -alhF --color=auto'
+alias ls='ls -lh --color=auto'
 alias asdf='worms -d 100 -n 10'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
@@ -55,6 +55,7 @@ alias gc="git commit -m"
 alias texsnips="vim -O ~/.vim/UltiSnips/tex.snippets ~/.vim/UltiSnips/tex.snippets.castel"
 alias ltuvpn="sudo f5fpc --start -t connect.latrobe.edu.au -u 'STUDENTS\18918787' -p "
 alias mlab="wmname LG3D;matlab -nodesktop -nosplash; wmname dwm"
+alias arduino="wmname LG3D;arduino"
 
 
 # # ex - archive extractor
