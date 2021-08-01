@@ -26,6 +26,7 @@ call plug#begin('~/.vim/plugged')
 	    let g:UltiSnipsExpandTrigger = '<tab>'
 	    let g:UltiSnipsJumpForwardTrigger = '<tab>'
 	    let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+	    let g:UltiSnipsSnippetDirectories=["UltiSnips", "my_snippets"]
 
 	Plug 'lervag/vimtex'
 	    let g:tex_flavor='latex'
