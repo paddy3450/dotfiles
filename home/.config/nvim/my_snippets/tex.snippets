@@ -85,6 +85,18 @@ snippet sssect "subsubsection" bA
 $0
 endsnippet
 
+snippet ttbb "text bold" iA
+\textbf{${1:${VISUAL}}}$0
+endsnippet
+
+snippet ttii "text italic" iA
+\emph{${1:${VISUAL}}}$0
+endsnippet
+
+snippet ttuu "text underline" iA
+\underline{${1:${VISUAL}}}$0
+endsnippet
+
 priority 100
 snippet ... "ldots" iA
 \ldots
@@ -157,15 +169,28 @@ endsnippet
 snippet dm "Math" wA
 \[
 ${1:${VISUAL}}
-.\] $0
+\] $0
+endsnippet
+
+snippet ddm "Math" wA
+\[ ${1:${VISUAL}} \] $0
 endsnippet
 
 snippet ali "Align" bA
 \begin{align*}
 	${1:${VISUAL}}
-.\end{align*}
+\end{align*}
 endsnippet
 
+context "math()"
+snippet ddif "differential" iA
+\dfrac{d$1}{d$2}$0
+endsnippet
+
+context "math()"
+snippet pdif "partial differential" iA
+\dfrac{\partial $1}{\partial $2}$0
+endsnippet
 
 context "math()"
 snippet // "Fraction" iA
@@ -646,6 +671,14 @@ snippet GGTH "THETA" iA
 \Theta
 endsnippet
 
+snippet ggta "tau" iA
+\tau
+endsnippet
+
+snippet GGTA "TAU" iA
+\Tau
+endsnippet
+
 snippet ggi "iota" iA
 \iota
 endsnippet
@@ -736,7 +769,7 @@ _\text{$1} $0
 endsnippet
 
 context "math()"
-snippet tt "text" iA
+snippet ttt "text" iA
 \text{$1}$0
 endsnippet
 
@@ -755,7 +788,7 @@ snippet bigfun "Big function" iA
 \begin{align*}
 	$1: $2 &\longrightarrow $3 \\\\
 	$4 &\longmapsto $1($4) = $0
-.\end{align*}
+\end{align*}
 endsnippet
 
 snippet cvec "column vector" iA
@@ -766,6 +799,12 @@ priority 10
 context "math()"
 snippet "bar" "bar" riA
 \overline{$1}$0
+endsnippet
+
+priority 10
+context "math()"
+snippet "lvec" "under tilde" riA
+\underset{\sim}{$1}$0
 endsnippet
 
 priority 100
