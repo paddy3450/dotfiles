@@ -1,5 +1,4 @@
 #!/bin/sh
-wallpapers=(~/.config/wallpapers/*)
 IMG=$(find ~/.config/wallpapers/ -type f | shuf -n 1)
 wal -n -i $IMG
 feh --bg-tile $IMG

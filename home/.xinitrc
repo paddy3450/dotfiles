@@ -13,6 +13,7 @@ dwm_status &
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 feh --bg-tile ~/.config/wallpapers/background.jpg
+defaultTheme
 
 if grep -q 'BigPapa' /etc/hostname; then
 	while true; do
