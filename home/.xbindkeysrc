@@ -55,6 +55,10 @@ Print
 "wtheme"
 Shift+Mod4+slash
 
+# set wallpaper and theme from default image
+"defaultTheme"
+Shift+Mod4+period
+
 #Power menu
 "power.sh"
 Shift+Mod4 + x
