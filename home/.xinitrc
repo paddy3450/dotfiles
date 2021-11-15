@@ -21,6 +21,7 @@ fi
 
 if grep -q 'BigPapa' /etc/hostname; then
 	while true; do
+		xrnadr --dpi 96
 		monitors
 		dwm > /dev/null 2>&1
 		monitors
