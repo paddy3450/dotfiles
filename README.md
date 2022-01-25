@@ -13,16 +13,18 @@ Mod4 + Shift + c      Web Browser (chromium)
 Mod4 + Shift + b      Web Browser (firefox)  
 Mod4 + Shift + f      File Browser (nemo)  
 Mod4 + Shift + t      Torrent client (transmission)  
-Mod4 + Shift + m      Music player (Spotify)  
-Mod4 + Shift + s      Steam  
-Mod4 + Shift + d      Discord  
-Mod4 + Shift + g      Gimp  
-Mod4 + Shift + o      OBS  
+Mod4 + Shift + m      Music player (spotify)  
+Mod4 + Shift + ctrl+m Music player (cantata)  
+Mod4 + Shift + s      Steam
+Mod4 + Shift + d      Discord
+Mod4 + Shift + g      Gimp
+Mod4 + Shift + o      OBS
 Mod4 + Shift + r      DAW (reaper)  
 Mod4 + Shift + v      Virtual Machines (virt-manager)  
 
 *other*  
 Mod4 + Shift + slash 	Random wallpaper and theme
+Mod4 + Shift + period 	Default wallpaper and theme
 Mod4 + Shift + x	Power menu
 
 *Media*  
@@ -34,6 +36,13 @@ Mod4 + Shift + Up	Spotify Stop playback
 Mod4 + Shift + Down	Spotify Play/Pause  
 Mod4 + Shift + Left	Spotify Previous track  
 Mod4 + Shift + Right	Spotify Next track  
+Mod4 + alt + Up		mpd Stop playback  
+Mod4 + alt + Down	mpd Play/Pause  
+Mod4 + alt + Left	mpd Previous track  
+Mod4 + alt + Right	mpd Next track  
+Mod4 + ctrl+alt+Up	mpd Volume up
+Mod4 + ctrl+alt+Down	mpd Volume down 
+Mod4 + Shift+ctrl+Down	Mute toggle
 
 *Window Manager (DWM)*  
 Mod4 + d		Launcher (dmenu)  
@@ -41,6 +50,8 @@ Mod4 + c		Terminal (st)
 Mod4 + b		Toggle bar  
 Mod4 + j		Focus window downstack  
 Mod4 + k		Focus window upstack  
+Mod4 + Shift + j	Move window downstack  
+Mod4 + Shift + k	Move window upstack  
 Mod4 + i		Increase master window count  
 Mod4 + o		Decrease master window count  
 Mod4 + h		Move window split left  
@@ -100,10 +111,12 @@ Mod4 + Shift + q	Quit DWM
 - .conf https://github.com/paddy3450/dotfiles
 - dwm https://github.com/paddy3450/dwm
 - st https://github.com/paddy3450/st  
-*the following as needed*
+*Then the following as needed*
 - acpi
-- atool zip
+- atool zip gzip p7zip
 - blender
+- calibre
+- cantata
 - cava
 - chromium
 - discord
@@ -111,25 +124,46 @@ Mod4 + Shift + q	Quit DWM
 - gimp
 - htop
 - inkscape
-- nemo
+- kdenlive
+- libreoffice-fresh
+- mpc
+- mpd
+- mpv
+- ncmpcpp
+- nemo nemo-fileroller
 - neofetch
-- obs
+- neovim
+- network-manager-applet networkmanager networkmanager-openvpn openvpn
+- nnn
+- npm
+- obs-studio obs-ndi obs-v4l2sink v4l2loopback-dkms
 - openssh
+- pandoc
 - playerctl
 - pulseaudio pulseaudio-alsa pamixer alsa-utils
-- ranger
+- pyright python-pandas python-pynvim
+- qemu
+- qmk
 - rclone
 - steam
-- texlive-most
+- teams teamspeak3
+- texlive-most biber
 - tmux
-- transmission-gtk
+- transmission-gtk transmission-cli
+- vert-manager
 - vlc
-- zathura
-- zathura-pdf-mupdf
+- wmname
 - xournalpp
+- youtube-dl
+- zathura zathura-pdf-mupdf zathura-djvu
 - lxappearance
-- (some dark gtk theme...?) arc-solid-gtk-theme materia-gtk-theme adapta-gtk-theme
+- arc-solid-gtk-theme materia-gtk-theme adapta-gtk-theme
+- papirus-icon-theme
 *AUR*
-- reaper-bin
+- expressvpn
+- plex-media-server
+- reaper-bin carla
 - spotify
+- vscodium-bin
 - yay 
+- zoom
