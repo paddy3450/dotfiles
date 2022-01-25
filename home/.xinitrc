@@ -19,9 +19,10 @@ if grep -q 'LittleBao' /etc/hostname; then
 	setxkbmap -option caps:escape
 fi
 
+setxkbmap -option compose:ralt
+
 if grep -q 'BigPapa' /etc/hostname; then
 	while true; do
-		xrnadr --dpi 96
 		monitors
 		dwm > /dev/null 2>&1
 		monitors
