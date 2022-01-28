@@ -11,7 +11,11 @@ call plug#begin('~/.vim/plugged')
 
 	" LSP and autocoplete
 	Plug 'neovim/nvim-lspconfig'
-	Plug 'nvim-lua/completion-nvim'
+	Plug 'hrsh7th/cmp-nvim-lsp'
+	Plug 'hrsh7th/cmp-buffer'
+	Plug 'hrsh7th/cmp-path'
+	Plug 'hrsh7th/cmp-cmdline'
+	Plug 'hrsh7th/nvim-cmp'
 	Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 	
 	Plug 'sirver/ultisnips'
@@ -19,6 +23,8 @@ call plug#begin('~/.vim/plugged')
 	    let g:UltiSnipsJumpForwardTrigger = '<tab>'
 	    let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 	    let g:UltiSnipsSnippetDirectories=["UltiSnips", "my_snippets"]
+	Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+
 
 	Plug 'lervag/vimtex'
 	    let g:tex_flavor='latex'
@@ -38,6 +44,9 @@ call plug#begin('~/.vim/plugged')
 		let g:arduino_dir = '/usr/share/arduino'
 		let g:arduino_home_dir = '~/Arduino'
 		let g:arduino_use_cli = 1  " this will always use arduino-cli
+
+	Plug 'mattn/emmet-vim'
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 " Some basics:
@@ -106,10 +115,12 @@ call plug#end()
 	nnoremap <leader>go :Goyo <CR>
 	nnoremap <leader>m @
 	nnoremap <leader>dws :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR> " remove trailing white space
-	nmap <leader>lst  <Plug>(toggle-lsp-diag)
-	nmap <leader>lsd <Plug>(toggle-lsp-diag-default)
-	nmap <leader>lsf <Plug>(toggle-lsp-diag-off)
-	nmap <leader>lso <Plug>(toggle-lsp-diag-on)
+	nmap <leader>lspt  <Plug>(toggle-lsp-diag)
+	nmap <leader>lspd <Plug>(toggle-lsp-diag-default)
+	nmap <leader>lspf <Plug>(toggle-lsp-diag-off)
+	nmap <leader>lspo <Plug>(toggle-lsp-diag-on)
+" completion with nvim-cmp
+	set completeopt=menu,menuone,noselect
 
 lua << EOF
 require'toggle_lsp_diagnostics'.init()
@@ -148,19 +159,92 @@ local on_attach = function(client, bufnr)
 
 end
 
+-- Setup nvim-cmp.
+  local cmp = require'cmp'
+
+  cmp.setup({
+    snippet = {
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+        -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+        vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      end,
+    },
+    mapping = {
+      ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+      ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+      ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+      ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+      ['<C-e>'] = cmp.mapping({
+        i = cmp.mapping.abort(),
+        c = cmp.mapping.close(),
+      }),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    },
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'vsnip' }, -- For vsnip users.
+      -- { name = 'luasnip' }, -- For luasnip users.
+      -- { name = 'ultisnips' }, -- For ultisnips users.
+      -- { name = 'snippy' }, -- For snippy users.
+    }, {
+      { name = 'buffer' },
+    })
+  })
+
+  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline('/', {
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })
+
+--Enable completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+local general_on_attach = function(client, bufnr)
+  if client.resolved_capabilities.completion then
+    lsp_completion.on_attach(client, bufnr)
+  end
+end
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
--- local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
-local servers = { 'r_language_server', 'pyright', 'ccls', 'tsserver' }
+local servers = { 'r_language_server', 'pyright', 'ccls', 'tsserver', 'html', 'cssls'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
+    capabilities = capabilities,
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
     }
   }
 end
-EOF
 
-" Use completion-nvim in every buffer
-autocmd BufEnter * lua require'completion'.on_attach()
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    custom_captures = {
+      -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
+      ["foo.bar"] = "Identifier",
+    },
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = true,
+  },
+}
+EOF
