@@ -47,6 +47,9 @@ call plug#begin('~/.vim/plugged')
 
 	Plug 'mattn/emmet-vim'
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	Plug 'norcalli/nvim-colorizer.lua'
+	Plug 'morhetz/gruvbox'
+
 call plug#end()
 
 " Some basics:
@@ -121,6 +124,9 @@ call plug#end()
 	nmap <leader>lspo <Plug>(toggle-lsp-diag-on)
 " completion with nvim-cmp
 	set completeopt=menu,menuone,noselect
+" allowing gui color for colorizer and gruvbox
+	set termguicolors
+	autocmd vimenter * ++nested colorscheme gruvbox
 
 lua << EOF
 require'toggle_lsp_diagnostics'.init()
@@ -247,4 +253,7 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = true,
   },
 }
+
+require'colorizer'.setup()
+
 EOF
