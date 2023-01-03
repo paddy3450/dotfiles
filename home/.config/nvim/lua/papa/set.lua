@@ -1,19 +1,28 @@
-vim.opt.number = ture
-vim.opt.relativenumber = ture
-vim.opt.smartindent = ture
-vim.opt.ignorecase = ture
-vim.opt.smartcase = ture
-
-vim.opt.splitbelow = ture
-vim.opt.splitright = ture
-
--- Netrw
-vim.g.netrw_banner = 0
-vim.g.netrw_liststyle = 3
-vim.g.netrw_browse_split = 4
-vim.g.netrw_altv = 1
-vim.g.netrw_winsize = 25
-
-
 vim.g.mapleader = " "
+vim.opt.guicursor = ""
+vim.opt.signcolumn = "yes"
+vim.opt.number = true
+vim.opt.relativenumber = true
 
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = false
+
+vim.opt.undofile = true
+
+vim.opt.smartindent = true
+
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+
+vim.opt.termguicolors = true
+vim.opt.scrolloff = 4
+
+vim.opt.updatetime = 50
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+vim.opt.splitbelow = true
+vim.opt.splitright = true
