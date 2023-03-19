@@ -66,60 +66,60 @@ Shift+Mod4 + x
 
 #MEDIA
 #Play-Pause
-"playerctl play-pause"
-Mod4+Down
+#"playerctl play-pause"
+#Mod4+Down
 
 #next
-"playerctl next"
-Mod4+Right
+#"playerctl next"
+#Mod4+Right
 
 #previous
-"playerctl previous"
-Mod4+Left
+#"playerctl previous"
+#Mod4+Left
 
 #stop
-"playerctl stop"
-Mod4+Up
+#"playerctl stop"
+#Mod4+Up
 
 #Play-Pause-spotify
-"playerctl -p spotify play-pause"
-Shift+Mod4+Down
+#"playerctl -p spotify play-pause"
+#Shift+Mod4+Down
 
-#next-spotify
-"playerctl -p spotify next"
-Shift+Mod4+Right
+##next-spotify
+#"playerctl -p spotify next"
+#Shift+Mod4+Right
 
-#previous-spotify
-"playerctl -p spotify previous"
-Shift+Mod4+Left
+##previous-spotify
+#"playerctl -p spotify previous"
+#Shift+Mod4+Left
 
-#stop-spotify
-"playerctl -p spotify stop"
-Shift+Mod4+Up
+##stop-spotify
+#"playerctl -p spotify stop"
+#Shift+Mod4+Up
 
 #Play-Pause-mpd
-"mpc toggle"
-Alt+Mod4+Down
+#"mpc toggle"
+#Alt+Mod4+Down
 
 #next-mpd
-"mpc next"
-Alt+Mod4+Right
+#"mpc next"
+#Alt+Mod4+Right
 
 #previous-mpd
-"mpc prev"
-Alt+Mod4+Left
+#"mpc prev"
+#Alt+Mod4+Left
 
 #stop-mpd
-"mpc stop"
-Alt+Mod4+Up
+#"mpc stop"
+#Alt+Mod4+Up
 
 # Increase volume MPD
-"mpc volume +5"
-   Control+alt+Mod4+Up
+#"mpc volume +5"
+   #Control+alt+Mod4+Up
 
 # Decrease volume MPD
-"mpc volume -5"
-   Control+alt+Mod4+Down
+#"mpc volume -5"
+   #Control+alt+Mod4+Down
 
 # Increase volume
 #"pactl set-sink-volume 0 +5"
@@ -138,8 +138,8 @@ Alt+Mod4+Up
 
 # Mute volume Alt version
 #"pactl set-sink-mute 0 toggle"
-"pamixer -t"
-   Control+Shift+Mod4+Down
+#"pamixer -t"
+   #Control+Shift+Mod4+Down
 
 # Mute mic
 #"pactl set-source-output-mute 0 toggle"
