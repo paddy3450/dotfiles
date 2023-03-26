@@ -21,11 +21,14 @@
         <value type="int" value="9"/>
         <value type="int" value="10"/>
         <value type="int" value="11"/>
+        <value type="int" value="15"/>
+        <value type="int" value="18"/>
         <value type="int" value="7"/>
         <value type="int" value="8"/>
         <value type="int" value="12"/>
         <value type="int" value="13"/>
         <value type="int" value="14"/>
+        <value type="int" value="16"/>
       </property>
       <property name="span-monitors" type="bool" value="false"/>
       <property name="mode" type="uint" value="0"/>
@@ -64,6 +67,8 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="wi-fi network connection “mostly harmless” active: mostly harmless (88%)"/>
+        <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="wi-fi network connection “iinet1d519d-5g” active: iinet1d519d-5g (59%)"/>
         <value type="string" value="wi-fi network connection “mostly harmless” active: mostly harmless (79%)"/>
         <value type="string" value="wi-fi network connection “mostly harmless 1” active: mostly harmless (63%)"/>
@@ -74,6 +79,7 @@
         <value type="string" value="blueberry-tray.py"/>
       </property>
       <property name="known-items" type="array">
+        <value type="string" value="obs"/>
         <value type="string" value="steam"/>
         <value type="string" value="Microsoft Teams - Preview1"/>
       </property>
@@ -111,6 +117,22 @@
     <property name="plugin-8" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
       <property name="expand" type="bool" value="false"/>
+    </property>
+    <property name="plugin-15" type="string" value="systemload">
+      <property name="uptime" type="empty">
+        <property name="enabled" type="bool" value="false"/>
+      </property>
+      <property name="timeout" type="uint" value="1000"/>
+      <property name="swap" type="empty">
+        <property name="enabled" type="bool" value="false"/>
+      </property>
+      <property name="network" type="empty">
+        <property name="enabled" type="bool" value="false"/>
+      </property>
+    </property>
+    <property name="plugin-16" type="string" value="separator"/>
+    <property name="plugin-18" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
     </property>
   </property>
 </channel>
