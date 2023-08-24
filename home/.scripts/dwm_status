@@ -3,7 +3,7 @@
 
 print_volume() {
 	volume="$(pamixer --get-volume-human)"
-	echo -e "$volume"
+	echo -e "V:$volume"
 	#volume="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
         #if test "$volume" -gt 0
         #then
@@ -40,21 +40,21 @@ print_temp(){
 print_power() {
         if hash acpi 2>/dev/null
         then
-		echo -e "|$(acpi)"
+		echo -e "|$(acpi | sed '/unavailable/d' | sed 's/Battery.[0-9]:.//g')"
         else
 		echo -e ""
         fi
 }
 
 print_ip() {
-	echo "$(nmcli | grep inet4 | cut -d' ' -f 2)"	
+	echo "$(nmcli | grep inet4 | sed '/127.0.0.1/d' | cut -d' ' -f 2)"	
 }
 
 print_music() {
-	if  mpc | grep -q playing; then
+	if  mpc 2>/dev/null | grep -q playing; then
 		echo "|$(mpc current)"	
 	fi
-	if  playerctl status -p spotify | grep -q Playing; then
+	if  playerctl status -p spotify 2>/dev/null| grep -q Playing; then
 		echo "|$(playerctl -p spotify metadata --format '{{artist}} - {{title}}')"
 	fi
 }
