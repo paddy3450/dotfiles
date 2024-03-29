@@ -147,6 +147,32 @@ function install_laptop_utilities() {
 # laptop
 sudo $MY_INSTALLER $MY_INSTALL acpi
 sudo $MY_INSTALLER $MY_INSTALL sof-firmware
+sudo $MY_INSTALLER $MY_INSTALL brightnessctl
+sudo $MY_INSTALLER $MY_INSTALL xf86-input-synaptics
+	if [ ! -f /etc/X11/xorg.conf.d/70-synaptics.conf ]; then
+		sudo echo \
+'Section "InputClass"
+    Identifier "touchpad"
+    Driver "synaptics"
+    MatchIsTouchpad "on"
+        Option "TapButton1" "1"
+        Option "TapButton2" "3"
+        Option "TapButton3" "2"
+        Option "VertEdgeScroll" "on"
+        Option "VertTwoFingerScroll" "on"
+        Option "HorizEdgeScroll" "on"
+        Option "HorizTwoFingerScroll" "on"
+        Option "CircularScrolling" "on"
+        Option "CircScrollTrigger" "2"
+        Option "EmulateTwoFingerMinZ" "40"
+        Option "EmulateTwoFingerMinW" "8"
+        Option "CoastingSpeed" "0"
+        Option "FingerLow" "30"
+        Option "FingerHigh" "50"
+        Option "MaxTapTime" "125"
+        Option "PalmDetect" "1"
+EndSection' | sudo tee /etc/X11/xorg.conf.d/70-synaptics.conf
+	fi
 }
 
 function install_graphics_drivers() {
@@ -181,19 +207,21 @@ function install_main_gui_programs() {
 #sudo $MY_INSTALLER $MY_INSTALL calibre
 #sudo $MY_INSTALLER $MY_INSTALL cantata
 #sudo $MY_INSTALLER $MY_INSTALL chromium
-#sudo $MY_INSTALLER $MY_INSTALL discord
+sudo $MY_INSTALLER $MY_INSTALL discord
 sudo $MY_INSTALLER $MY_INSTALL firefox
 sudo $MY_INSTALLER $MY_INSTALL gimp
 #sudo $MY_INSTALLER $MY_INSTALL inkscape
 ##sudo $MY_INSTALLER $MY_INSTALL kdenlive
-#sudo $MY_INSTALLER $MY_INSTALL libreoffice-fresh
+sudo $MY_INSTALLER $MY_INSTALL libreoffice-fresh
+sudo $MY_INSTALLER $MY_INSTALL rawtherapee
 sudo $MY_INSTALLER $MY_INSTALL obs-studio 
 ##sudo $MY_INSTALLER $MY_INSTALL qmk
 echo "ENABLE MULTI LIB IN /etc/pacman.conf"
 sudo $MY_INSTALLER $MY_INSTALL steam-native-runtime
 sudo $MY_INSTALLER $MY_INSTALL discord
-#sudo $MY_INSTALLER $MY_INSTALL texlive-most biber
+sudo $MY_INSTALLER $MY_INSTALL texlive-most biber
 sudo $MY_INSTALLER $MY_INSTALL xournalpp
+sudo $MY_INSTALLER $MY_INSTALL reaper
 sudo $MY_INSTALLER $MY_INSTALL youtube-dl
 }
 
@@ -205,6 +233,7 @@ function install_virtual_machines() {
 }
 
 function menu() {
+	read -n 1 -r -s -p $"Press any key to continue...."
 	clear
 	echo -ne "
 		1)install base utility
