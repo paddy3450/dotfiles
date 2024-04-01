@@ -70,7 +70,7 @@ function install_minecraft(){
 	fi
 	if [ ! -e ~/Programs/minecraft-launcher ]; then
 		cd ~/Programs
-		echo "cloning ST from github"
+		echo "cloning Minecraft from AUR"
 		git clone https://aur.archlinux.org/minecraft-launcher.git
 		cd ~/Programs/minecraft-launcher
 		makepkg -si
@@ -117,7 +117,8 @@ sudo $MY_INSTALLER $MY_INSTALL openssh
 sudo $MY_INSTALLER $MY_INSTALL cava
 sudo $MY_INSTALLER $MY_INSTALL playerctl
 sudo $MY_INSTALLER $MY_INSTALL pandoc
-sudo $MY_INSTALLER $MY_INSTALL pulseaudio pulseaudio-alsa pamixer alsa-utils pavucontrol bluez blueberry
+sudo $MY_INSTALLER $MY_INSTALL pipewire helvum pulseaudio pulseaudio-alsa pamixer alsa-utils pavucontrol
+sudo $MY_INSTALLER $MY_INSTALL bluez bluez-utils blueberry
 sudo $MY_INSTALLER $MY_INSTALL pyright python-pandas python-pynvim
 echo "Enable bluetooth service Y/N"
 read -r enable_bluetooth
@@ -141,6 +142,7 @@ sudo $MY_INSTALLER $MY_INSTALL arc-solid-gtk-theme materia-gtk-theme adapta-gtk-
 sudo $MY_INSTALLER $MY_INSTALL papirus-icon-theme
 sudo $MY_INSTALLER $MY_INSTALL transmission-gtk transmission-cli
 sudo $MY_INSTALLER $MY_INSTALL arandr
+sudo $MY_INSTALLER $MY_INSTALL alacritty
 }
 
 function install_laptop_utilities() {
@@ -176,13 +178,12 @@ EndSection' | sudo tee /etc/X11/xorg.conf.d/70-synaptics.conf
 }
 
 function install_graphics_drivers() {
-	echo "hello";
-## graphical drivers
-#sudo $MY_INSTALLER $MY_INSTALL mesa
-#sudo $MY_INSTALLER $MY_INSTALL lib32-glu
-#sudo $MY_INSTALLER $MY_INSTALL lib32-nvidia-utils
-#sudo $MY_INSTALLER $MY_INSTALL lib32-vulkan-radeon
-#sudo $MY_INSTALLER $MY_INSTALL vulkan-intel
+# graphical drivers
+sudo $MY_INSTALLER $MY_INSTALL mesa
+sudo $MY_INSTALLER $MY_INSTALL lib32-glu
+sudo $MY_INSTALLER $MY_INSTALL lib32-nvidia-utils
+sudo $MY_INSTALLER $MY_INSTALL lib32-vulkan-radeon
+sudo $MY_INSTALLER $MY_INSTALL vulkan-intel
 }
 
 function install_xorg() {
@@ -221,15 +222,15 @@ sudo $MY_INSTALLER $MY_INSTALL steam-native-runtime
 sudo $MY_INSTALLER $MY_INSTALL discord
 sudo $MY_INSTALLER $MY_INSTALL texlive-most biber
 sudo $MY_INSTALLER $MY_INSTALL xournalpp
-sudo $MY_INSTALLER $MY_INSTALL reaper
 sudo $MY_INSTALLER $MY_INSTALL youtube-dl
+sudo $MY_INSTALLER $MY_INSTALL reaper
+sudo $MY_INSTALLER $MY_INSTALL cardinal
 }
 
 function install_virtual_machines() {
-	echo "hello";
 # Virtual machines
-##sudo $MY_INSTALLER $MY_INSTALL vert-manager
-##sudo $MY_INSTALLER $MY_INSTALL qemu
+sudo $MY_INSTALLER $MY_INSTALL vert-manager
+sudo $MY_INSTALLER $MY_INSTALL qemu
 }
 
 function menu() {
