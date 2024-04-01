@@ -145,6 +145,10 @@ Shift+Mod4 + x
 #"pactl set-source-output-mute 0 toggle"
 "amixer set Capture toggle"
    XF86AudioMicMute
+ 
+# Toggle mic mute
+"amixer set Capture toggle"
+   Control+Mod4+m
 
 # Increase backlight
 #"xbacklight -inc 10"
