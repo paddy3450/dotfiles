@@ -2,7 +2,10 @@
 
 export EDITOR=vim st
 export TERMCMD=urxvtc
-export BROWSER=chromium
+export BROWSER=firefox
+
+dbus-update-activation-environment --all
+gnome-keyring-daemon --start --components=secrets
 
 xbindkeys &
 
