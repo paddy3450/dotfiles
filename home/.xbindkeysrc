@@ -175,3 +175,7 @@ Shift+Mod4 + x
 ##"pactl set-sink-mute 0 toggle"
 #"amixer set Master toggle"
 #   XF86AudioMute
+
+# Open Melbourne weather
+"$BROWSER -new-window http://www.bom.gov.au/products/IDR022.loop.shtml#skip -new-tab https://www.willyweather.com.au/vic/melbourne/melbourne.html -new-tab https://earth.nullschool.net/#current/wind/surface/level/orthographic=-220.57,-36.32,3277"
+   Shift+Mod4 + w
