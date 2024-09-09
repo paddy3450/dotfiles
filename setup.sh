@@ -10,27 +10,32 @@ fi
 if [ -f /etc/arch-release ]; then
 	export MY_INSTALLER="pacman"
 	export MY_INSTALL="-S --noconfirm --needed"
-	$MY_INSTALLER -Syu --noconfirm
+	echo "System update..."
+	sudo $MY_INSTALLER -Syu --noconfirm
 elif [ command -v apt-get ]; then
 	export MY_INSTALLER="apt-get"
 	export MY_INSTALL="-qq install"
-	$MY_INSTALLER update
+	echo "System update..."
+	sudo $MY_INSTALLER update
 elif [ command -v dnf ]; then
 	export MY_INSTALLER="dnf"
 	export MY_INSTALL="-y install"
-	$MY_INSTALLER -y update
+	echo "System update..."
+	sudo $MY_INSTALLER -y update
 fi
 
-# Move config files in using stow
-if [ -e ~/.bashrc ] && [ ! -L ~/.bashrc ]; then
-	mv ~/.bashrc ~/.bashrc.backup
-fi
-if [ -e ~/.bash_profile ] && [ ! -L ~/.bash_profile ]; then
-	mv ~/.bash_profile ~/.bash_profile.backup
-fi
-cd ~/dotfiles
-stow -v -R -t ~ home  
-cd ~
+function stow_dotfiles(){
+	# Move config files in using stow
+	if [ -e ~/.bashrc ] && [ ! -L ~/.bashrc ]; then
+		mv ~/.bashrc ~/.bashrc.backup
+	fi
+	if [ -e ~/.bash_profile ] && [ ! -L ~/.bash_profile ]; then
+		mv ~/.bash_profile ~/.bash_profile.backup
+	fi
+	cd ~/dotfiles
+	stow -v -R -t ~ home  
+	cd ~
+}
 
  
 function install_dwm(){
@@ -93,12 +98,12 @@ sudo $MY_INSTALLER $MY_INSTALL gzip
 sudo $MY_INSTALLER $MY_INSTALL p7zip
 sudo $MY_INSTALLER $MY_INSTALL htop
 sudo $MY_INSTALLER $MY_INSTALL btop
-sudo $MY_INSTALLER $MY_INSTALL mpc
-sudo $MY_INSTALLER $MY_INSTALL mpd
+# sudo $MY_INSTALLER $MY_INSTALL mpc
+# sudo $MY_INSTALLER $MY_INSTALL mpd
 sudo $MY_INSTALLER $MY_INSTALL mpv
-sudo $MY_INSTALLER $MY_INSTALL ncmpcpp
+# sudo $MY_INSTALLER $MY_INSTALL ncmpcpp
 sudo $MY_INSTALLER $MY_INSTALL vim
-sudo $MY_INSTALLER $MY_INSTALL neofetch
+sudo $MY_INSTALLER $MY_INSTALL fastfetch
 sudo $MY_INSTALLER $MY_INSTALL neovim
 if [ ! -e ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
 	git clone --depth 1 https://github.com/wbthomason/packer.nvim\
@@ -111,15 +116,16 @@ sudo $MY_INSTALLER $MY_INSTALL openvpn
 sudo $MY_INSTALLER $MY_INSTALL nnn
 sudo $MY_INSTALLER $MY_INSTALL tmux
 sudo $MY_INSTALLER $MY_INSTALL rclone
-sudo $MY_INSTALLER $MY_INSTALL vlc
-sudo $MY_INSTALLER $MY_INSTALL wmname
+# sudo $MY_INSTALLER $MY_INSTALL vlc
+# sudo $MY_INSTALLER $MY_INSTALL wmname
 sudo $MY_INSTALLER $MY_INSTALL openssh
 sudo $MY_INSTALLER $MY_INSTALL cava
 sudo $MY_INSTALLER $MY_INSTALL playerctl
 sudo $MY_INSTALLER $MY_INSTALL pandoc
-sudo $MY_INSTALLER $MY_INSTALL pipewire helvum pulseaudio pulseaudio-alsa pamixer alsa-utils pavucontrol
+sudo $MY_INSTALLER $MY_INSTALL pipewire helvum pipewire-audio pipewire-pulse pipewire-alsa pamixer alsa-utils pavucontrol
 sudo $MY_INSTALLER $MY_INSTALL bluez bluez-utils blueberry
-sudo $MY_INSTALLER $MY_INSTALL pyright python-pandas python-pynvim
+sudo $MY_INSTALLER $MY_INSTALL pyright python-pynvim
+# sudo $MY_INSTALLER $MY_INSTALL python-pandas
 echo "Enable bluetooth service Y/N"
 read -r enable_bluetooth
 case $enable_bluetooth in
@@ -223,8 +229,40 @@ sudo $MY_INSTALLER $MY_INSTALL discord
 sudo $MY_INSTALLER $MY_INSTALL texlive-most biber
 sudo $MY_INSTALLER $MY_INSTALL xournalpp
 sudo $MY_INSTALLER $MY_INSTALL youtube-dl
-sudo $MY_INSTALLER $MY_INSTALL reaper
 sudo $MY_INSTALLER $MY_INSTALL cardinal
+}
+
+function install_audio_production() {
+# DAW and audio production
+# a subsection of the pro-audio arch package group
+sudo $MY_INSTALLER $MY_INSTALL reaper
+sudo $MY_INSTALLER $MY_INSTALL amsynth amsynth-common amsynth-standalone
+# sudo $MY_INSTALLER $MY_INSTALL bespokesynth
+# sudo $MY_INSTALLER $MY_INSTALL musescore
+sudo $MY_INSTALLER $MY_INSTALL calf
+sudo $MY_INSTALLER $MY_INSTALL cardinal-clap cardinal-lv2 cardinal-standalone cardinal-vst cardinal-vst3
+sudo $MY_INSTALLER $MY_INSTALL carla
+sudo $MY_INSTALLER $MY_INSTALL dexed dexed-standalone dexed-vst3 dexed-vst
+sudo $MY_INSTALLER $MY_INSTALL dpf-plugins-lv2 dpf-plugins-vst dpf-plugins-vst3
+sudo $MY_INSTALLER $MY_INSTALL dragonfly-reverb-lv2 dragonfly-reverb-standalone dragonfly-reverb-vst dragonfly-reverb-vst3
+sudo $MY_INSTALLER $MY_INSTALL drumkv1-lv2 drumkv1-standalone
+sudo $MY_INSTALLER $MY_INSTALL guitarx
+sudo $MY_INSTALLER $MY_INSTALL iempluginsuite-vst3
+sudo $MY_INSTALLER $MY_INSTALL infamousplugins
+sudo $MY_INSTALLER $MY_INSTALL jc303-common jc303-lv2 jc303-vst3
+sudo $MY_INSTALLER $MY_INSTALL mcp-plugins
+sudo $MY_INSTALLER $MY_INSTALL ob-xd ob-xd-common ob-xd-lv2 ob-xd-standalone ob-xd-vst3
+sudo $MY_INSTALLER $MY_INSTALL odin2-synthesizer odin2-synthesizer-clap odin2-synthesizer-common odin2-synthesizer-lv2 odin2-synthesizer-standalone odin2-synthesizer-vst3
+sudo $MY_INSTALLER $MY_INSTALL opl-synth
+sudo $MY_INSTALLER $MY_INSTALL opnplug-lv2 opnplug-standalone opnplug-vst
+sudo $MY_INSTALLER $MY_INSTALL ot-cryptid-clap ot-cryptid-docs ot-cryptid-standalone ot-cryptid-vst3 ot-simian-docs ot-simian-lv2 ot-simian-vst3 ot-urchin-clap ot-urchin-docs ot-urchin-standalone ot-urchin-vst3
+sudo $MY_INSTALLER $MY_INSTALL padthv1-lv2 padthv1-standalone 
+sudo $MY_INSTALLER $MY_INSTALL surge-xt surge-xt-clap surge-xt-common surge-xt-standalone surge-xt-vst3
+sudo $MY_INSTALLER $MY_INSTALL synthv1-lv2 synthv1-standalone
+sudo $MY_INSTALLER $MY_INSTALL tembro
+sudo $MY_INSTALLER $MY_INSTALL yass
+sudo $MY_INSTALLER $MY_INSTALL yoshimi-lv2 yoshimi-standalone
+sudo $MY_INSTALLER $MY_INSTALL zam-plugins-clap zam-plugins-ladspa zam-plugins-lv2 zam-plugins-vst zam-plugins-vst3
 }
 
 function install_virtual_machines() {
@@ -237,6 +275,7 @@ function menu() {
 	read -n 1 -r -s -p $"Press any key to continue...."
 	clear
 	echo -ne "
+		s)put dotfiles in place with STOW
 		1)install base utility
 		2)install graphics drivers
 		3)install laptop utilities
@@ -248,10 +287,12 @@ function menu() {
 		9)install main gui_programs
 		10)install virtual machines
 		11)install minecraft
+		12)install audio production programs and plugins
 		0) Exit
 	"
 	read -r ans
 	case $ans in
+		s)stow_dotfiles ; menu ;;
 		1)install_base_utility ; menu ;;
 		2)install_graphics_drivers; menu ;;
 		3)install_laptop_utilities ; menu ;;
@@ -263,6 +304,7 @@ function menu() {
 		9)install_main_gui_programs ; menu ;;
 		10)install_virtual_machines ; menu ;;
 		11)install_minecraft ; menu ;;
+		11)install_audio_production ; menu ;;
 		*) exit 0 ;;
 	esac
 }
