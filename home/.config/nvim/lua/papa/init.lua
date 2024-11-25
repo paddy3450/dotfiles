@@ -1,5 +1,4 @@
 require("papa.set")
 require("papa.remap")
 require("papa.netrw")
--- require("config.lazy")
 require("papa.lazy")
