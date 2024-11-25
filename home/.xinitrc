@@ -2,7 +2,7 @@
 
 export EDITOR=vim st
 export TERMCMD=urxvtc
-export BROWSER=firefox
+export BROWSER=zen-browser
 
 dbus-update-activation-environment --all
 gnome-keyring-daemon --start --components=secrets

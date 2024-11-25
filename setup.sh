@@ -9,7 +9,8 @@ fi
 # environment detection
 if [ -f /etc/arch-release ]; then
 	export MY_INSTALLER="pacman"
-	export MY_INSTALL="-S --noconfirm --needed"
+	export MY_INSTALL="-S --needed"
+	# export MY_INSTALL="-S --noconfirm --needed"
 	echo "System update..."
 	sudo $MY_INSTALLER -Syu --noconfirm
 elif [ command -v apt-get ]; then
@@ -139,7 +140,7 @@ esac
 function install_graphical_utility() {
 ##utility graphical
 sudo $MY_INSTALLER $MY_INSTALL zathura zathura-pdf-mupdf zathura-djvu
-sudo $MY_INSTALLER $MY_INSTALL noto-fonts 
+sudo $MY_INSTALLER $MY_INSTALL noto-fonts ttf-noto-nerd
 sudo $MY_INSTALLER $MY_INSTALL python-pywal
 sudo $MY_INSTALLER $MY_INSTALL nemo 
 sudo $MY_INSTALLER $MY_INSTALL nemo-fileroller
@@ -304,7 +305,7 @@ function menu() {
 		9)install_main_gui_programs ; menu ;;
 		10)install_virtual_machines ; menu ;;
 		11)install_minecraft ; menu ;;
-		11)install_audio_production ; menu ;;
+		12)install_audio_production ; menu ;;
 		*) exit 0 ;;
 	esac
 }

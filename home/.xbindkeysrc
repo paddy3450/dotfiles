@@ -3,7 +3,7 @@
 #Internet Browser
 "chromium"
 Shift+Mod4 + c
-"firefox"
+"$BROWSER"
 Shift+Mod4 + b
 
 #GUI File Browser
@@ -177,5 +177,5 @@ Shift+Mod4 + x
 #   XF86AudioMute
 
 # Open Melbourne weather
-"$BROWSER -new-window http://www.bom.gov.au/products/IDR022.loop.shtml#skip -new-tab https://www.willyweather.com.au/vic/melbourne/melbourne.html -new-tab https://earth.nullschool.net/#current/wind/surface/level/orthographic=-220.57,-36.32,3277"
+"$BROWSER -new-tab https://earth.nullschool.net/#current/wind/surface/level/orthographic=-220.57,-36.32,3277 -new-tab http://www.bom.gov.au/products/IDR022.loop.shtml#skip -new-tab https://www.willyweather.com.au/vic/melbourne/melbourne.html"
    Shift+Mod4 + w
