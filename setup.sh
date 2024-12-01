@@ -104,12 +104,8 @@ sudo $MY_INSTALLER $MY_INSTALL btop
 sudo $MY_INSTALLER $MY_INSTALL mpv
 # sudo $MY_INSTALLER $MY_INSTALL ncmpcpp
 sudo $MY_INSTALLER $MY_INSTALL vim
-sudo $MY_INSTALLER $MY_INSTALL fastfetch
 sudo $MY_INSTALLER $MY_INSTALL neovim
-if [ ! -e ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
-	git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-		 ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-fi
+sudo $MY_INSTALLER $MY_INSTALL fastfetch
 sudo $MY_INSTALLER $MY_INSTALL network-manager-applet 
 sudo $MY_INSTALLER $MY_INSTALL networkmanager 
 sudo $MY_INSTALLER $MY_INSTALL networkmanager-openvpn 
@@ -148,7 +144,6 @@ sudo $MY_INSTALLER $MY_INSTALL lxappearance
 sudo $MY_INSTALLER $MY_INSTALL arc-solid-gtk-theme materia-gtk-theme adapta-gtk-theme
 sudo $MY_INSTALLER $MY_INSTALL papirus-icon-theme
 sudo $MY_INSTALLER $MY_INSTALL transmission-gtk transmission-cli
-sudo $MY_INSTALLER $MY_INSTALL arandr
 sudo $MY_INSTALLER $MY_INSTALL alacritty
 }
 
@@ -202,11 +197,17 @@ sudo $MY_INSTALLER $MY_INSTALL xbindkeys
 sudo $MY_INSTALLER $MY_INSTALL xclip 
 sudo $MY_INSTALLER $MY_INSTALL dmenu 
 sudo $MY_INSTALLER $MY_INSTALL picom 
+sudo $MY_INSTALLER $MY_INSTALL arandr
 }
 
 function install_xfce4() {
 #xfce
 sudo $MY_INSTALLER $MY_INSTALL xfce4 xfce4-goodies
+}
+
+function install_cosmic() {
+#cosmic
+sudo $MY_INSTALLER $MY_INSTALL cosmic-session cosmic-terminal
 }
 
 function install_main_gui_programs() {
@@ -289,6 +290,7 @@ function menu() {
 		10)install virtual machines
 		11)install minecraft
 		12)install audio production programs and plugins
+		13)install Cosmic Desktop and cosmic apps
 		0) Exit
 	"
 	read -r ans
@@ -306,6 +308,7 @@ function menu() {
 		10)install_virtual_machines ; menu ;;
 		11)install_minecraft ; menu ;;
 		12)install_audio_production ; menu ;;
+		13)install_cosmic; menu ;;
 		*) exit 0 ;;
 	esac
 }

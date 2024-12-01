@@ -1,0 +1,144 @@
+{
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "t",
+        description: Some("torrent client"),
+    ): Spawn("transmission-gtk"),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "n",
+    ): MoveToNextOutput,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "s",
+        description: Some("Steam"),
+    ): Spawn("steam"),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "v",
+        description: Some("Virtual Machines"),
+    ): Spawn("virt-manager"),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "d",
+        description: Some("Discord"),
+    ): Spawn("discord"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "x",
+    ): Close,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "p",
+    ): MoveToPreviousOutput,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Tab",
+    ): NextWorkspace,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "g",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "a",
+    ): Spawn("reaper"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "c",
+    ): System(Terminal),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "b",
+        description: Some("Browser"),
+    ): Spawn("zen-browser"),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "comma",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "period",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "t",
+    ): ToggleWindowFloating,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "g",
+        description: Some("Gimp"),
+    ): Spawn("gimp"),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "o",
+        description: Some("OBS"),
+    ): Spawn("obs"),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "w",
+        description: Some("Weather pages"),
+    ): Spawn("$BROWSER -new-tab https://earth.nullschool.net/#current/wind/surface/level/orthographic=-220.57,-36.32,3277 -new-tab http://www.bom.gov.au/products/IDR022.loop.shtml#skip -new-tab https://www.willyweather.com.au/vic/melbourne/melbourne.html"),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "Tab",
+    ): PreviousWorkspace,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "q",
+    ): Disable,
+}

@@ -11,9 +11,6 @@ set -o vi
 #prompt
 export PS1="\[\e[34m\][\[\e[m\]\[\e[33m\]\u\[\e[m\]\[\e[33m\]@\[\e[m\]\[\e[33m\]\h\[\e[m\] \[\e[33m\]\W\[\e[m\]\[\e[34m\]]\[\e[m\]\[\e[34m\]\\$\[\e[m\] "
 
-export EDITOR=nvim
-export VISUAL=nvim
-
 #tab complete after sudo
 complete -cf sudo
 
@@ -40,28 +37,15 @@ alias rr=ranger
 alias nn="nnn -ed"
 alias pl=playerctl
 alias plm="playerctl metadata"
-alias uniup="rclone sync ~/Documents/2021 googledrive:UNI/2021" ## RCLONE GOOGLE DRIVE UNI WORK SYNC
-alias unidown="rclone sync googledrive:UNI/2021 ~/Documents/2021"
-alias unicheck="rclone check googledrive:UNI/2021 ~/Documents/2021"
-alias uniup2020="rclone sync ~/Documents/2020 googledrive:UNI/2020" ## RCLONE GOOGLE DRIVE UNI WORK SYNC
-alias unidown2020="rclone sync googledrive:UNI/2020 ~/Documents/2020"
-alias unicheck2020="rclone check googledrive:UNI/2020 ~/Documents/2020"
 alias g="git"
 alias gs="git status"
 alias gb="git branch"
 alias gl="git log --oneline"
 alias ga="git add"
 alias gc="git commit -m"
-alias texsnips="vim -O ~/.vim/UltiSnips/tex.snippets ~/.vim/UltiSnips/tex.snippets.castel"
-alias ltuvpn="sudo f5fpc --start -t connect.latrobe.edu.au -u 'STUDENTS\18918787' -p "
 alias mlab="wmname LG3D;matlab -nodesktop -nosplash; wmname dwm"
 alias arduino="wmname LG3D;arduino"
 alias wmjava="wmname LG3D"
-
-#javaFX
-export PATH_TO_FX=/usr/lib/jvm/java-16-openjdk/lib/javafx-swt.jar:/usr/lib/jvm/java-16-openjdk/lib/javafx.base.jar:/usr/lib/jvm/java-16-openjdk/lib/javafx.controls.jar:/usr/lib/jvm/java-16-openjdk/lib/javafx.fxml.jar:/usr/lib/jvm/java-16-openjdk/lib/javafx.graphics.jar:/usr/lib/jvm/java-16-openjdk/lib/javafx.media.jar:/usr/lib/jvm/java-16-openjdk/lib/javafx.swing.jar:/usr/lib/jvm/java-16-openjdk/lib/javafx.web.jar
-alias jfxc="javac --module-path $PATH_TO_FX --add-modules ALL-MODULE-PATH"
-alias jfx="java --module-path $PATH_TO_FX --add-modules ALL-MODULE-PATH"
 
 # # ex - archive extractor
 # # usage: ex <file>
