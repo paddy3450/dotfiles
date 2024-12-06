@@ -2,7 +2,6 @@ Some(([
     "com.system76.CosmicPanelAppButton",
     "com.system76.CosmicAppletWorkspaces",
 ], [
-    "com.system76.CosmicAppletTime",
     "com.system76.CosmicAppletStatusArea",
     "com.system76.CosmicAppletTiling",
     "com.system76.CosmicAppletAudio",
@@ -10,5 +9,6 @@ Some(([
     "com.system76.CosmicAppletBattery",
     "com.system76.CosmicAppletNotifications",
     "com.system76.CosmicAppletBluetooth",
+    "com.system76.CosmicAppletTime",
     "com.system76.CosmicAppletPower",
 ]))

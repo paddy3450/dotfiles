@@ -4,9 +4,9 @@
             Super,
             Shift,
         ],
-        key: "t",
-        description: Some("torrent client"),
-    ): Spawn("transmission-gtk"),
+        key: "w",
+        description: Some("Weather pages"),
+    ): Spawn("$BROWSER -new-tab https://earth.nullschool.net/#current/wind/surface/level/orthographic=-220.57,-36.32,3277 -new-tab http://www.bom.gov.au/products/IDR022.loop.shtml#skip -new-tab https://www.willyweather.com.au/vic/melbourne/melbourne.html"),
     (
         modifiers: [
             Super,
@@ -17,11 +17,56 @@
     (
         modifiers: [
             Super,
+        ],
+        key: "d",
+    ): System(Launcher),
+    (
+        modifiers: [
+            Super,
             Shift,
         ],
-        key: "s",
-        description: Some("Steam"),
-    ): Spawn("steam"),
+        key: "a",
+    ): Spawn("reaper"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "t",
+    ): ToggleWindowFloating,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "g",
+        description: Some("Gimp"),
+    ): Spawn("gimp"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "q",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Tab",
+    ): NextWorkspace,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "Tab",
+    ): PreviousWorkspace,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "p",
+    ): MoveToPreviousOutput,
     (
         modifiers: [
             Super,
@@ -49,69 +94,9 @@
             Super,
             Shift,
         ],
-        key: "p",
-    ): MoveToPreviousOutput,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "Tab",
-    ): NextWorkspace,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "g",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "a",
-    ): Spawn("reaper"),
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "c",
-    ): System(Terminal),
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "b",
-        description: Some("Browser"),
-    ): Spawn("zen-browser"),
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "comma",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "period",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "t",
-    ): ToggleWindowFloating,
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "g",
-        description: Some("Gimp"),
-    ): Spawn("gimp"),
+        key: "s",
+        description: Some("Steam"),
+    ): Spawn("steam"),
     (
         modifiers: [
             Super,
@@ -125,20 +110,46 @@
             Super,
             Shift,
         ],
-        key: "w",
-        description: Some("Weather pages"),
-    ): Spawn("$BROWSER -new-tab https://earth.nullschool.net/#current/wind/surface/level/orthographic=-220.57,-36.32,3277 -new-tab http://www.bom.gov.au/products/IDR022.loop.shtml#skip -new-tab https://www.willyweather.com.au/vic/melbourne/melbourne.html"),
+        key: "b",
+        description: Some("Browser"),
+    ): Spawn("zen-browser"),
     (
         modifiers: [
             Super,
             Shift,
         ],
-        key: "Tab",
-    ): PreviousWorkspace,
+        key: "period",
+    ): Disable,
     (
         modifiers: [
             Super,
         ],
-        key: "q",
+        key: "c",
+    ): System(Terminal),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "t",
+        description: Some("torrent client"),
+    ): Spawn("transmission-gtk"),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "comma",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "g",
     ): Disable,
 }
