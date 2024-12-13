@@ -12,7 +12,6 @@ export EDITOR=nvim
 export VISUAL=nvim
 export TERMCMD=cosmic-terminal
 export TERMINAL=cosmic-terminal
-export TERM=xterm-256color
 export BROWSER=zen-browser
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
