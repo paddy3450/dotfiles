@@ -187,6 +187,7 @@ sudo $MY_INSTALLER $MY_INSTALL lib32-glu
 sudo $MY_INSTALLER $MY_INSTALL lib32-nvidia-utils
 sudo $MY_INSTALLER $MY_INSTALL lib32-vulkan-radeon
 sudo $MY_INSTALLER $MY_INSTALL vulkan-intel
+sudo $MY_INSTALLER $MY_INSTALL rocm-smi-lib #allow GPU details to be shown in btop (AMD)
 }
 
 function install_xorg() {
