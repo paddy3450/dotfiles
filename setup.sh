@@ -137,7 +137,7 @@ esac
 function install_graphical_utility() {
 ##utility graphical
 sudo $MY_INSTALLER $MY_INSTALL zathura zathura-pdf-mupdf zathura-djvu
-sudo $MY_INSTALLER $MY_INSTALL noto-fonts ttf-noto-nerd
+sudo $MY_INSTALLER $MY_INSTALL noto-fonts ttf-noto-nerd ttc-iosevka
 sudo $MY_INSTALLER $MY_INSTALL python-pywal
 sudo $MY_INSTALLER $MY_INSTALL nemo 
 sudo $MY_INSTALLER $MY_INSTALL nemo-fileroller
@@ -270,8 +270,9 @@ sudo $MY_INSTALLER $MY_INSTALL zam-plugins-clap zam-plugins-ladspa zam-plugins-l
 
 function install_virtual_machines() {
 # Virtual machines
-sudo $MY_INSTALLER $MY_INSTALL vert-manager
+sudo $MY_INSTALLER $MY_INSTALL virt-manager
 sudo $MY_INSTALLER $MY_INSTALL qemu
+sudo $MY_INSTALLER $MY_INSTALL dnsmasq
 }
 
 function menu() {
