@@ -1,13 +1,21 @@
 [Default Applications]
-image/png=feh.desktop
-x-scheme-handler/mailto=chromium.desktop
-application/pdf=org.pwmt.zathura.desktop
 application/epub+zip=org.pwmt.zathura.desktop
-video/x-matroska=mpv.desktop
-video/mp4=mpv.desktop
+application/pdf=org.pwmt.zathura.desktop
+application/x-terminal-emulator=com.system76.CosmicTerm.desktop
+application/xhtml+xml=zen.desktop
+image/png=feh.desktop
 image/svg=xml=org.inkscape.Inkscape.desktop
+text/html=zen.desktop
+text/plain=nvim.desktop
+video/mp4=mpv.desktop
+video/x-matroska=mpv.desktop
+x-scheme-handler/chrome=zen.desktop
+x-scheme-handler/http=zen.desktop
+x-scheme-handler/https=zen.desktop
+x-scheme-handler/mailto=chromium.desktop
+x-scheme-handler/terminal=com.system76.CosmicTerm.desktop
 
 [Added Associations]
-video/x-matroska=mpv.desktop;
-video/mp4=mpv.desktop;
-image/svg=xml=org.inkscape.Inkscape.desktop;
+image/svg=xml=org.inkscape.Inkscape.desktop
+video/mp4=mpv.desktop
+video/x-matroska=mpv.desktop
