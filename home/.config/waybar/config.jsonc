@@ -133,7 +133,7 @@
     "backlight": {
         "justify": "center",
         // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
+        "format": "{icon}\n{percent}%",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
