@@ -1,0 +1,158 @@
+@define-color white         #F2F2F2;
+@define-color black         #000203;
+@define-color lightgray     #FFF8DC;
+@define-color darkgray      #353535;
+@define-color red           #F38BA8;
+@define-color text          #BECBCB;
+@define-color orange        #FF7F50;
+@define-color darkorange    #D2691E;
+
+@define-color black-transparent-1 rgba(0, 0, 0, 0.1);
+@define-color black-transparent-2 rgba(0, 0, 0, 0.2);
+@define-color black-transparent-3 rgba(0, 0, 0, 0.3);
+@define-color black-transparent-4 rgba(0, 0, 0, 0.4);
+@define-color black-transparent-5 rgba(0, 0, 0, 0.5);
+@define-color black-transparent-6 rgba(0, 0, 0, 0.6);
+@define-color black-transparent-7 rgba(0, 0, 0, 0.7);
+@define-color black-transparent-8 rgba(0, 0, 0, 0.8);
+@define-color black-transparent-9 rgba(0, 0, 0, 0.9);
+@define-color black-solid         rgba(0, 0, 0, 1.0);
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Iosevka, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    color: @lightgray;
+}
+
+window#waybar {
+    color: @text;
+    border: 2px solid @darkorange;
+    border-radius: 10;
+    background-color: @black-transparent-5;
+}
+
+tooltip {
+    background: @black-solid;
+    border: 1px solid @darkgray;
+}
+tooltip label {
+    color: @lighgray;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#window,
+#custom-power,
+#bluetooth,
+#workspaces {
+    margin: 0 0px;
+    color: @lightgray;
+    margin-top: 2;
+    margin-bottom: 2;
+    margin-left: 2;
+    margin-right: 2;
+}
+
+button {
+    border: none;
+    background-color: @black-transparent-2;
+    color: @lightgray;
+    margin: 2;
+    margin-left: 5;
+    margin-right: 5;
+}
+
+button:hover {
+    background-color: @black-solid;
+    color: @white;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: @black-transparent-1;
+    color: @darkgray;
+}
+
+#workspaces button:not(.empty) {
+    background-color: @black-solid;
+    color: @lightgray;
+    border: 2px solid @darkorange;
+}
+
+#workspaces button:hover {
+    background: @black-solid;
+}
+
+#workspaces button.visible {
+    background-color: @orange;
+}
+
+#workspaces button.urgent {
+    background-color: @darkorange;
+}
+
+#clock {
+}
+
+#battery {
+}
+
+#battery.charging, #battery.plugged {
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: @red;
+    color: @white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+#cpu {
+    font-size: 14;
+}
+
+#memory {
+    font-size: 14;
+}
+
+#backlight {
+}
+
+#network {
+}
+
+#network.disconnected {
+}
+
+#pulseaudio {
+}
+
+#pulseaudio.muted {
+}
+#temperature {
+    font-size: 14;
+}
+
+#temperature.critical {
+    background-color: @orange;
+}
+
+#bluetooth {
+    margin-bottom: 20;
+}
+#custom-power {
+    margin-top: 20;
+}

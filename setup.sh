@@ -212,6 +212,15 @@ function install_cosmic() {
 sudo $MY_INSTALLER $MY_INSTALL cosmic-session cosmic-terminal
 }
 
+function install_hyprland() {
+#Hyprland
+sudo $MY_INSTALLER $MY_INSTALL hyperland hyprpaper waybar
+sudo $MY_INSTALLER $MY_INSTALL gcc pkg-config mason
+hyprpm add https://github.com/Duckonaut/split-monitor-workspaces # Add the plugin repository
+hyprpm enable split-monitor-workspaces # Enable the plugin
+hyprpm reload # Reload the plugins
+}
+
 function install_main_gui_programs() {
 #applications
 #sudo $MY_INSTALLER $MY_INSTALL blender
@@ -225,10 +234,10 @@ sudo $MY_INSTALLER $MY_INSTALL gimp
 ##sudo $MY_INSTALLER $MY_INSTALL kdenlive
 sudo $MY_INSTALLER $MY_INSTALL libreoffice-fresh
 sudo $MY_INSTALLER $MY_INSTALL rawtherapee
-sudo $MY_INSTALLER $MY_INSTALL obs-studio 
+sudo $MY_INSTALLER $MY_INSTALL obs-studio
 ##sudo $MY_INSTALLER $MY_INSTALL qmk
 echo "ENABLE MULTI LIB IN /etc/pacman.conf"
-sudo $MY_INSTALLER $MY_INSTALL steam-native-runtime
+sudo $MY_INSTALLER $MY_INSTALL steam
 sudo $MY_INSTALLER $MY_INSTALL discord
 sudo $MY_INSTALLER $MY_INSTALL texlive-most biber
 sudo $MY_INSTALLER $MY_INSTALL xournalpp
@@ -294,6 +303,7 @@ function menu() {
 		11)install minecraft
 		12)install audio production programs and plugins
 		13)install Cosmic Desktop and cosmic apps
+		14)install Hyprland and waybar
 		0) Exit
 	"
 	read -r ans
@@ -312,6 +322,7 @@ function menu() {
 		11)install_minecraft ; menu ;;
 		12)install_audio_production ; menu ;;
 		13)install_cosmic; menu ;;
+		14)install_hyprland; menu ;;
 		*) exit 0 ;;
 	esac
 }
@@ -322,5 +333,4 @@ menu
 ##reaper-bin carla
 ##spotify
 ##vscodium-bin
-##yay 
-
+##yay
