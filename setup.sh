@@ -92,10 +92,10 @@ function install_base_utility() {
 sudo $MY_INSTALLER $MY_INSTALL git
 sudo $MY_INSTALLER $MY_INSTALL sed
 sudo $MY_INSTALLER $MY_INSTALL stow
-sudo $MY_INSTALLER $MY_INSTALL feh 
-sudo $MY_INSTALLER $MY_INSTALL atool 
-sudo $MY_INSTALLER $MY_INSTALL zip 
-sudo $MY_INSTALLER $MY_INSTALL gzip 
+sudo $MY_INSTALLER $MY_INSTALL feh
+sudo $MY_INSTALLER $MY_INSTALL atool
+sudo $MY_INSTALLER $MY_INSTALL zip
+sudo $MY_INSTALLER $MY_INSTALL gzip
 sudo $MY_INSTALLER $MY_INSTALL 7zip
 sudo $MY_INSTALLER $MY_INSTALL grep ripgrep
 sudo $MY_INSTALLER $MY_INSTALL htop
@@ -107,9 +107,9 @@ sudo $MY_INSTALLER $MY_INSTALL mpv
 sudo $MY_INSTALLER $MY_INSTALL vim
 sudo $MY_INSTALLER $MY_INSTALL neovim
 sudo $MY_INSTALLER $MY_INSTALL fastfetch
-sudo $MY_INSTALLER $MY_INSTALL network-manager-applet 
-sudo $MY_INSTALLER $MY_INSTALL networkmanager 
-sudo $MY_INSTALLER $MY_INSTALL networkmanager-openvpn 
+sudo $MY_INSTALLER $MY_INSTALL network-manager-applet
+sudo $MY_INSTALLER $MY_INSTALL networkmanager
+sudo $MY_INSTALLER $MY_INSTALL networkmanager-openvpn
 sudo $MY_INSTALLER $MY_INSTALL openvpn
 sudo $MY_INSTALLER $MY_INSTALL nnn
 sudo $MY_INSTALLER $MY_INSTALL tmux
@@ -139,7 +139,7 @@ function install_graphical_utility() {
 sudo $MY_INSTALLER $MY_INSTALL zathura zathura-pdf-mupdf zathura-djvu
 sudo $MY_INSTALLER $MY_INSTALL noto-fonts ttf-noto-nerd ttc-iosevka
 sudo $MY_INSTALLER $MY_INSTALL python-pywal
-sudo $MY_INSTALLER $MY_INSTALL nemo 
+sudo $MY_INSTALLER $MY_INSTALL nemo
 sudo $MY_INSTALLER $MY_INSTALL nemo-fileroller
 sudo $MY_INSTALLER $MY_INSTALL lxappearance
 sudo $MY_INSTALLER $MY_INSTALL arc-solid-gtk-theme materia-gtk-theme adapta-gtk-theme
@@ -192,13 +192,13 @@ sudo $MY_INSTALLER $MY_INSTALL rocm-smi-lib #allow GPU details to be shown in bt
 
 function install_xorg() {
 #X desktop
-sudo $MY_INSTALLER $MY_INSTALL xorg-server 
-sudo $MY_INSTALLER $MY_INSTALL xorg-xinit 
-sudo $MY_INSTALLER $MY_INSTALL xorg-xsetroot 
-sudo $MY_INSTALLER $MY_INSTALL xbindkeys 
-sudo $MY_INSTALLER $MY_INSTALL xclip 
-sudo $MY_INSTALLER $MY_INSTALL dmenu 
-sudo $MY_INSTALLER $MY_INSTALL picom 
+sudo $MY_INSTALLER $MY_INSTALL xorg-server
+sudo $MY_INSTALLER $MY_INSTALL xorg-xinit
+sudo $MY_INSTALLER $MY_INSTALL xorg-xsetroot
+sudo $MY_INSTALLER $MY_INSTALL xbindkeys
+sudo $MY_INSTALLER $MY_INSTALL xclip
+sudo $MY_INSTALLER $MY_INSTALL dmenu
+sudo $MY_INSTALLER $MY_INSTALL picom
 sudo $MY_INSTALLER $MY_INSTALL arandr
 }
 
@@ -214,8 +214,8 @@ sudo $MY_INSTALLER $MY_INSTALL cosmic-session cosmic-terminal
 
 function install_hyprland() {
 #Hyprland
-sudo $MY_INSTALLER $MY_INSTALL hyperland hyprpaper waybar
-sudo $MY_INSTALLER $MY_INSTALL gcc pkg-config mason
+sudo $MY_INSTALLER $MY_INSTALL hyprland hyprpaper waybar
+sudo $MY_INSTALLER $MY_INSTALL cmake meson cpio pkg-config git gcc
 hyprpm add https://github.com/Duckonaut/split-monitor-workspaces # Add the plugin repository
 hyprpm enable split-monitor-workspaces # Enable the plugin
 hyprpm reload # Reload the plugins
