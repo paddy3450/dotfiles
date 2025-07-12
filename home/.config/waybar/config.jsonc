@@ -10,7 +10,6 @@
     "spacing": 10,
     // "gtk-layer-shell": true,
     "modules-left": [
-        "custom/power",
         "clock",
         "cpu",
         "memory",
@@ -20,12 +19,14 @@
         "hyprland/workspaces"
     ],
     "modules-right": [
+        "tray",
         "backlight",
         "battery",
         "pulseaudio#audio",
         "network#wlo1",
         "network#eno1",
-        "bluetooth"
+        "bluetooth",
+        "custom/power"
     ],
 
     // Modules configuration
@@ -99,7 +100,7 @@
         "interval": 1,
         "justify": "center",
         // "format": "󰥔\n{:%H\n%M\n\n󰣆\n%d\n%m\n%y}",
-        "format": "󰣆\n{:%h\n%d\n\n󰥔\n%H\n%M}",
+        "format": "󰥔\n{:%H\n%M\n\n󰣆\n%h\n%d}",
         "tooltip": true,
         "tooltip-format": "{calendar}",
         "calendar": {
@@ -213,8 +214,8 @@
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml",
 		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
+			"shutdown": "shutdown now",
+			"reboot": "reboot now",
 			"suspend": "systemctl suspend",
 			"hibernate": "systemctl hibernate",
 			"exit": "hyprctl dispatch exit"

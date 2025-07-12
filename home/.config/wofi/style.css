@@ -1,0 +1,71 @@
+@define-color white         #F2F2F2;
+@define-color black         #000203;
+@define-color lightgray     #FFF8DC;
+@define-color darkgray      #353535;
+@define-color red           #F38BA8;
+@define-color text          #BECBCB;
+@define-color orange        #FF7F50;
+@define-color darkorange    #D2691E;
+
+@define-color black-transparent-1 rgba(0, 0, 0, 0.1);
+@define-color black-transparent-2 rgba(0, 0, 0, 0.2);
+@define-color black-transparent-3 rgba(0, 0, 0, 0.3);
+@define-color black-transparent-4 rgba(0, 0, 0, 0.4);
+@define-color black-transparent-5 rgba(0, 0, 0, 0.5);
+@define-color black-transparent-6 rgba(0, 0, 0, 0.6);
+@define-color black-transparent-7 rgba(0, 0, 0, 0.7);
+@define-color black-transparent-8 rgba(0, 0, 0, 0.8);
+@define-color black-transparent-9 rgba(0, 0, 0, 0.9);
+@define-color black-solid         rgba(0, 0, 0, 1.0);
+
+window {
+	font-family: FontAwesome, Iosevka, Roboto, Helvetica, Arial, sans-serif;
+	margin: 0px;
+	border-radius: 10px;
+    border: 2px solid @darkorange;
+    background-color: @black-transparent-5;
+}
+
+#input {
+	margin: 5px;
+	border: none;
+	color: @text;
+    background-color: @black-transparent-5;
+}
+
+#inner-box {
+	margin: 5px;
+	border: none;
+	background-color: transparent;
+}
+
+#outer-box {
+	margin: 5px;
+	border: none;
+	background-color: transparent;
+}
+
+#scroll {
+	margin: 0px;
+	border: none;
+}
+
+#text {
+	margin: 5px;
+	border: none;
+	color: @text;
+}
+
+#entry {
+	border: none;
+}
+
+#entry:focus {
+	border: none;
+}
+
+#entry:selected {
+	background-color: @darkorange;
+	border-radius: 5px;
+	border: none;
+}

@@ -102,6 +102,7 @@ button:hover {
 }
 
 #clock {
+    margin-top: 20;
 }
 
 #battery {
@@ -151,8 +152,7 @@ button:hover {
 }
 
 #bluetooth {
-    margin-bottom: 20;
 }
 #custom-power {
-    margin-top: 20;
+    margin-bottom: 20;
 }

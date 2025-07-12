@@ -214,7 +214,7 @@ sudo $MY_INSTALLER $MY_INSTALL cosmic-session cosmic-terminal
 
 function install_hyprland() {
 #Hyprland
-sudo $MY_INSTALLER $MY_INSTALL hyprland hyprpaper waybar
+sudo $MY_INSTALLER $MY_INSTALL hyprland hyprpaper waybar wofi
 sudo $MY_INSTALLER $MY_INSTALL cmake meson cpio pkg-config git gcc
 hyprpm update
 hyprpm add https://github.com/Duckonaut/split-monitor-workspaces # Add the plugin repository
