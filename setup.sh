@@ -1,5 +1,7 @@
 #!/bin/bash
 
+user_name="$USER"
+
 cd ~
 if [ ! -e ~/dotfiles ]; then
 	git clone http://github.com/paddy3450/dotfiles
@@ -285,6 +287,17 @@ function install_virtual_machines() {
 sudo $MY_INSTALLER $MY_INSTALL virt-manager
 sudo $MY_INSTALLER $MY_INSTALL qemu
 sudo $MY_INSTALLER $MY_INSTALL dnsmasq
+sudo usermod -aG libvirt $user_name
+echo "Enable libvirtd socket and service Y/N"
+read -r enable_libvirtd
+case $enable_libvirtd in
+	y)
+	systemctl enable libvirtd.service
+	systemctl enable libvirtd.service
+	systemctl enable libvirtd.socket
+	systemctl start libvirtd.socket ;;
+	*) ;;
+esac
 }
 
 function menu() {
