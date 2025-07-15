@@ -140,6 +140,7 @@ function install_graphical_utility() {
 ##utility graphical
 sudo $MY_INSTALLER $MY_INSTALL zathura zathura-pdf-mupdf zathura-djvu
 sudo $MY_INSTALLER $MY_INSTALL noto-fonts ttf-noto-nerd ttc-iosevka
+sudo $MY_INSTALLER $MY_INSTALL ttf-jigmo otf-ipaexfont ttf-baekmuk ttf-hannom
 sudo $MY_INSTALLER $MY_INSTALL python-pywal
 sudo $MY_INSTALLER $MY_INSTALL nemo
 sudo $MY_INSTALLER $MY_INSTALL nemo-fileroller
