@@ -1,4 +1,5 @@
 !.*
+*.log
 .git
 home/.config/cosmic/com.system76.cosmicSettings/v1/active-page
 home/.config/nvim/lazy-lock.json
@@ -41,7 +42,7 @@ home/.config/pavucontrol.ini
 home/.config/pulse
 home/.config/QtProject.conf
 home/.config/ranger
-home/.config/Raspberry Pi'
+home/.config/Raspberry\ Pi
 home/.config/RawTherapee
 home/.config/REAPER
 home/.config/SFZTools
@@ -55,5 +56,6 @@ home/.config/vlc
 home/.config/wal
 home/.config/xournalpp
 home/.config/xfce4/desktop
+home/.config/xfce4/xfconf/xfce-perchannel-xml/pointers.xml
 home/.config/yay
 home/.config/yoshimi
