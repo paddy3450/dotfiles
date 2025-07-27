@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+if grep -q 'basic' /etc/keyd/default.conf; then
+	cp ~/dotfiles/misc/keyd/homerow.conf ~/dotfiles/misc/keyd/default.conf
+else
+	cp ~/dotfiles/misc/keyd/basic.conf ~/dotfiles/misc/keyd/default.conf
+fi
+
+sudo keyd reload

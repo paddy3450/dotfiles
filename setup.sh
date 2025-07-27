@@ -301,6 +301,47 @@ case $enable_libvirtd in
 esac
 }
 
+function install_keyd() {
+# keyd daemon
+sudo $MY_INSTALLER $MY_INSTALL keyd
+sudo rm /etc/keyd/*
+echo "select keymap
+[B]asic: capslock -> esc,meta
+[H]omerow: basic with homerow mods"
+sudo ln -sf ~/dotfiles/misc/keyd/default.conf /etc/keyd/default.conf
+read -r conf_choice
+case $conf_choice in
+	b)
+	cp ~/dotfiles/misc/keyd/basic.conf ~/dotfiles/misc/keyd/default.conf ;;
+	h)
+	cp ~/dotfiles/misc/keyd/homerow.conf ~/dotfiles/misc/keyd/default.conf ;;
+	*)
+	echo "" > ~/dotfiles/misc/keyd/default.conf;;
+esac
+echo "Enable keyd service Y/N"
+read -r enable_keyd
+case $enable_keyd in
+	y)
+		systemctl enable --now keyd ;;
+	*) ;;
+esac
+echo "Enable 'keyd reload' without password Y/N"
+read -r edit_sudo
+case $edit_sudo in
+	y)
+		if  sudo grep -q keyd /etc/sudoers.d/papa ; then
+			echo "alread has sudo rights for keyd reload"
+		else
+			sudoers_file="/etc/sudoers.d/papa"
+			echo "papa ALL=(root) NOPASSWD: /usr/bin/keyd reload" | sudo tee -a "$sudoers_file" > /dev/null
+			sudo chmod 0440 "$sudoers_file"
+			echo "sudo rights added for keyd reload"
+			fi ;;
+		*) ;;
+	esac
+sudo keyd reload
+}
+
 function menu() {
 	read -n 1 -r -s -p $"Press any key to continue...."
 	clear
@@ -320,6 +361,7 @@ function menu() {
 		12)install audio production programs and plugins
 		13)install Cosmic Desktop and cosmic apps
 		14)install Hyprland and waybar
+		15)install keyd
 		0) Exit
 	"
 	read -r ans
@@ -339,6 +381,7 @@ function menu() {
 		12)install_audio_production ; menu ;;
 		13)install_cosmic; menu ;;
 		14)install_hyprland; menu ;;
+		15)install_keyd; menu ;;
 		*) exit 0 ;;
 	esac
 }
