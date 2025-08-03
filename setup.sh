@@ -115,6 +115,13 @@ sudo $MY_INSTALLER $MY_INSTALL networkmanager-openvpn
 sudo $MY_INSTALLER $MY_INSTALL openvpn
 sudo $MY_INSTALLER $MY_INSTALL nnn
 sudo $MY_INSTALLER $MY_INSTALL tmux
+if [ ! -e ~/.tmux/plugins/tpm ]; then
+	mkdir -p ~/.tmux/plugins
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	echo "cloning tpm repo"
+else
+	echo "tmp already installed"
+fi
 sudo $MY_INSTALLER $MY_INSTALL rclone
 # sudo $MY_INSTALLER $MY_INSTALL vlc
 # sudo $MY_INSTALLER $MY_INSTALL wmname
