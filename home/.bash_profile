@@ -10,8 +10,8 @@ export npm_config_prefix="$HOME/.local"
 
 export EDITOR=nvim
 export VISUAL=nvim
-export TERMCMD=cosmic-terminal
-export TERMINAL=cosmic-terminal
+export TERMCMD=alacritty
+export TERMINAL=alacritty
 export BROWSER=zen-browser
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
