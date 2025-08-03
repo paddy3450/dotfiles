@@ -6,7 +6,7 @@
         ],
         key: "w",
         description: Some("Weather pages"),
-    ): Spawn("$BROWSER -new-tab https://earth.nullschool.net/#current/wind/surface/level/orthographic=-220.57,-36.32,3277 -new-tab http://www.bom.gov.au/products/IDR022.loop.shtml#skip -new-tab https://www.willyweather.com.au/vic/melbourne/melbourne.html"),
+    ): Spawn("$BROWSER -new-tab https://earth.nullschool.net/#current/wind/surface/level/orthographic=-220.57,-36.32,3277 -new-tab http://www.bom.gov.au/products/IDR022.loop.shtml#skip -new-tab https://www.willyweather.com.au/vic/melbourne/travancore.html"),
     (
         modifiers: [
             Super,
