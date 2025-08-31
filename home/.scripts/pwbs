@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+# Wofi configuration files
+CONFIG="${WOFI_CONFIG:-$HOME/.config/wofi/config}"
+STYLE="${WOFI_STYLE:-$HOME/.config/wofi/style.css}"
+
+# Wofi commands
+wofi_command="wofi --show dmenu --conf ${CONFIG} --style ${STYLE} --width=600 --height=255"
+wofi_confirm="wofi --show dmenu --conf ${CONFIG} --style ${STYLE} --width=600 --height=131"
+
+# Get system pipewire status
+pipewire_status=$(pw-metadata -n settings)
+
+default="Restore defaults"
+daw_lowlate="low latency DAW settings"
+custom="Custom buffer and sample rate"
+
+# Confirmation prompt
+confirm_action() {
+    response=$(echo -e "No\nYes" | $wofi_confirm --prompt "Are you sure?")
+    [[ "$response" == "Yes" ]]
+}
+
+# Open Wofi menu
+open_menu() {
+    options="$default\n$daw_lowlate\n$custom"
+    chosen=$(echo -e "$options" | $wofi_command --prompt "UP - $pipewire_status")
+
+    [[ -z "$chosen" ]] && exit 0  # Exit if no selection is made
+
+    case $chosen in
+        "$default")
+            if confirm_action; then
+                notify-send "Pipewire default buffer size and sample rate restored"
+                pw-metadata -n settings 0 clock.force-rate 0
+                pw-metadata -n settings 0 clock.force-quantum 0
+                pw-metadata -n settings
+            fi
+            ;;
+        "$daw_lowlate")
+            if confirm_action; then
+                notify-send "Pipewire buffer size and sample rate set"
+                pw-metadata -n settings 0 clock.force-rate 48000
+                pw-metadata -n settings 0 clock.force-quantum 128
+            fi
+            ;;
+        "$custom")
+            notify-send "not implemented yet"
+            ;;
+    esac
+}
+
+# Prevent multiple instances
+if pgrep -fx "wofi --show dmenu" > /dev/null; then
+    pkill -f "wofi --show dmenu"
+else
+    open_menu
+fi
