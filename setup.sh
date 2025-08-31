@@ -287,6 +287,7 @@ sudo $MY_INSTALLER $MY_INSTALL synthv1-lv2 synthv1-standalone
 sudo $MY_INSTALLER $MY_INSTALL tembro
 sudo $MY_INSTALLER $MY_INSTALL yass
 sudo $MY_INSTALLER $MY_INSTALL yoshimi-lv2 yoshimi-standalone
+sudo $MY_INSTALLER $MY_INSTALL ot-cryptid-clap ot-keys-clap ot-urchin-clap
 sudo $MY_INSTALLER $MY_INSTALL zam-plugins-clap zam-plugins-ladspa zam-plugins-lv2 zam-plugins-vst zam-plugins-vst3
 }
 
