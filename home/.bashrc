@@ -48,12 +48,9 @@ alias gc="git commit -m"
 alias gd="git diff"
 alias gds="git diff --staged"
 alias sc="start-cosmic"
-alias sh="hyprland"
+alias shl="hyprland"
 alias sx="startx"
 alias sxf="startxfce4"
-alias mlab="wmname LG3D;matlab -nodesktop -nosplash; wmname dwm"
-alias arduino="wmname LG3D;arduino"
-alias wmjava="wmname LG3D"
 
 # # ex - archive extractor
 # # usage: ex <file>
