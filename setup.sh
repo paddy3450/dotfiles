@@ -251,7 +251,7 @@ sudo $MY_INSTALLER $MY_INSTALL obs-studio
 echo "ENABLE MULTI LIB IN /etc/pacman.conf"
 sudo $MY_INSTALLER $MY_INSTALL steam
 sudo $MY_INSTALLER $MY_INSTALL discord
-sudo $MY_INSTALLER $MY_INSTALL texlive-most biber
+sudo $MY_INSTALLER $MY_INSTALL texlive-basic texlive-latex texlive-latexrecommended texlive-fontsrecommended texlive-bibtexextra texlive-mathscience texlive-humanities biber
 sudo $MY_INSTALLER $MY_INSTALL xournalpp
 sudo $MY_INSTALLER $MY_INSTALL youtube-dl
 sudo $MY_INSTALLER $MY_INSTALL cardinal
