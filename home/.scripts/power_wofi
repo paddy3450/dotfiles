@@ -22,13 +22,13 @@ if $use_icons; then
     shutdown="   Shutdown"
     reboot="   Reboot"
     lock="   Lock"
-    suspend="   Sleep"
+    suspend="   Suspend"
     logout="   Logout"
 else
     shutdown="Shutdown"
     reboot="Reboot"
     lock="Lock"
-    suspend="Sleep"
+    suspend="Suspend"
     logout="Logout"
 fi
 
@@ -63,12 +63,10 @@ open_menu() {
         "$lock")
             command -v hyprlock &>/dev/null && hyprlock
             ;;
-        "$sleep")
+        "$suspend")
             battery_path="/sys/class/power_supply/BAT0/capacity"
             battery_level=$(cat "$battery_path" 2>/dev/null || echo 100)
             if [[ "$battery_level" -ge 5 ]]; then
-                command -v mpc &>/dev/null && mpc -q pause
-                command -v pulsemixer &>/dev/null && pulsemixer --mute
                 notify-send "System suspending..."
                 sleep 2
                 systemctl suspend
