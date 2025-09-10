@@ -3,8 +3,10 @@
 
 if grep -q 'basic' /etc/keyd/default.conf; then
 	cp ~/dotfiles/misc/keyd/homerow.conf ~/dotfiles/misc/keyd/default.conf
+	notify-send "Homerow mods and layers enabled"
 else
 	cp ~/dotfiles/misc/keyd/basic.conf ~/dotfiles/misc/keyd/default.conf
+	notify-send "keyd set to basic layout"
 fi
 
 sudo keyd reload
