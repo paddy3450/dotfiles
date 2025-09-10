@@ -1,0 +1,2 @@
+#!/bin/sh
+$BROWSER -new-tab https://timetable.necaeducation.com.au:44304 -new-tab https://online.vitalsource.com/home/my-library -new-tab file:///home/papa/Documents/neca/AS_NZS-3000_2018-Electrical-installations-Wiring-Rules.pdf -new-tab https://sparky.necaeducation.com.au/my/
