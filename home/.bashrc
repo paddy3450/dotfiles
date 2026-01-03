@@ -48,7 +48,7 @@ alias gc="git commit -m"
 alias gd="git diff"
 alias gds="git diff --staged"
 alias sc="start-cosmic"
-alias shl="hyprland"
+alias shl="start-hyprland"
 alias sx="startx"
 alias sxf="startxfce4"
 
