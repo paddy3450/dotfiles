@@ -148,7 +148,7 @@ background = #00000000
 ################################################################################
 [info]
 # Show on startup (yes/no)
-show = yes
+show = no
 # Text padding from window edges
 padding = 10
 # Timeout to hide info (seconds, 0 to always show)

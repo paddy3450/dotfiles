@@ -94,7 +94,8 @@ function install_base_utility() {
 sudo $MY_INSTALLER $MY_INSTALL git
 sudo $MY_INSTALLER $MY_INSTALL sed
 sudo $MY_INSTALLER $MY_INSTALL stow
-sudo $MY_INSTALLER $MY_INSTALL feh
+# sudo $MY_INSTALLER $MY_INSTALL feh
+sudo $MY_INSTALLER $MY_INSTALL swayimg
 sudo $MY_INSTALLER $MY_INSTALL atool
 sudo $MY_INSTALLER $MY_INSTALL zip
 sudo $MY_INSTALLER $MY_INSTALL gzip
@@ -126,6 +127,7 @@ sudo $MY_INSTALLER $MY_INSTALL rclone
 # sudo $MY_INSTALLER $MY_INSTALL vlc
 # sudo $MY_INSTALLER $MY_INSTALL wmname
 sudo $MY_INSTALLER $MY_INSTALL openssh
+sudo $MY_INSTALLER $MY_INSTALL waypipe
 sudo $MY_INSTALLER $MY_INSTALL cava
 sudo $MY_INSTALLER $MY_INSTALL playerctl
 sudo $MY_INSTALLER $MY_INSTALL pandoc
@@ -139,6 +141,18 @@ case $enable_bluetooth in
 	y)
 	systemctl enable bluetooth.service
 	systemctl start bluetooth.service ;;
+	*) ;;
+esac
+echo "Enable pipewire services Y/N"
+read -r enable_pipewire
+case $enable_pipewire in
+	y)
+	systemctl enable --user pipewire.service
+	systemctl start --user pipewire.service
+	systemctl enable --user pipewire-pulse.service
+	systemctl start --user pipewire-pulse.service
+	systemctl enable --user wireplumber.service
+	systemctl start --user wireplumber.service ;;
 	*) ;;
 esac
 }
@@ -251,7 +265,8 @@ sudo $MY_INSTALLER $MY_INSTALL obs-studio
 echo "ENABLE MULTI LIB IN /etc/pacman.conf"
 sudo $MY_INSTALLER $MY_INSTALL steam
 sudo $MY_INSTALLER $MY_INSTALL discord
-sudo $MY_INSTALLER $MY_INSTALL texlive-basic texlive-latex texlive-latexrecommended texlive-fontsrecommended texlive-bibtexextra texlive-mathscience texlive-humanities biber
+sudo $MY_INSTALLER $MY_INSTALL texlive-basic texlive-latex texlive-latexrecommended texlive-fontsextra texlive-latexextra texlive-fontsrecommended texlive-bibtexextra texlive-mathscience texlive-humanities biber
+sudo $MY_INSTALLER $MY_INSTALL tree-sitter-cli
 sudo $MY_INSTALLER $MY_INSTALL xournalpp
 sudo $MY_INSTALLER $MY_INSTALL youtube-dl
 sudo $MY_INSTALLER $MY_INSTALL cardinal

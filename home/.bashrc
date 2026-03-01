@@ -22,7 +22,6 @@ shopt -s histappend
 #aliases
 alias ll='ls -alhF --color=auto'
 alias ls='ls -lh --color=auto'
-alias asdf='worms -d 100 -n 10'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -34,9 +33,9 @@ alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias ..='cd ..'
 alias more=less
-alias rr=ranger
+alias sim="swayimg"
 alias nn="nnn -ed"
-alias pl=playerctl
+alias pl="playerctl"
 alias plm="playerctl metadata"
 alias g="git"
 alias gs="git status"
@@ -75,4 +74,3 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
-
