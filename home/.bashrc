@@ -37,6 +37,7 @@ alias sim="swayimg"
 alias nn="nnn -ed"
 alias pl="playerctl"
 alias plm="playerctl metadata"
+alias tmuxx="tmux attach -t 0 || tmux"
 alias g="git"
 alias gs="git status"
 alias gb="git branch"
@@ -49,7 +50,7 @@ alias gds="git diff --staged"
 alias sc="start-cosmic"
 alias shl="start-hyprland"
 alias sx="startx"
-alias sxf="startxfce4"
+alias spw="startplasma-wayland"
 
 # # ex - archive extractor
 # # usage: ex <file>
