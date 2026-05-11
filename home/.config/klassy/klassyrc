@@ -1,0 +1,25 @@
+[Global]
+LookAndFeelSet=org.kde.breezedark.desktop
+RefreshedConfig=6.5.3
+
+[ShadowStyle]
+ShadowSize=ShadowNone
+
+[Windeco Exception 0]
+BorderSize=0
+Enabled=true
+ExceptionBorder=false
+ExceptionMatchTitleBarToApplicationColor=false
+ExceptionPreset=
+ExceptionProgramNamePattern=
+ExceptionWindowPropertyPattern=alacritty
+ExceptionWindowPropertyType=0
+HideTitleBar=1
+OpaqueTitleBar=false
+PreventApplyOpacityToHeader=false
+
+[WindowOutlineStyle]
+WindowOutlineAccentColorOpacityActive=100
+WindowOutlineShadowColorOpacity=100
+WindowOutlineStyleActive=WindowOutlineAccentColor
+WindowOutlineThickness=2

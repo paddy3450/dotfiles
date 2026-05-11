@@ -1,0 +1,5 @@
+[Applications][com.nextcloud.desktopclient.nextcloud]
+Seen=true
+
+[Notifications]
+PopupPosition=TopRight

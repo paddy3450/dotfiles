@@ -162,7 +162,7 @@ function install_graphical_utility() {
 sudo $MY_INSTALLER $MY_INSTALL zathura zathura-pdf-mupdf zathura-djvu
 sudo $MY_INSTALLER $MY_INSTALL noto-fonts ttf-noto-nerd ttc-iosevka
 sudo $MY_INSTALLER $MY_INSTALL ttf-jigmo otf-ipaexfont ttf-baekmuk ttf-hannom
-sudo $MY_INSTALLER $MY_INSTALL python-pywal
+# sudo $MY_INSTALLER $MY_INSTALL python-pywal
 sudo $MY_INSTALLER $MY_INSTALL nemo
 sudo $MY_INSTALLER $MY_INSTALL nemo-fileroller
 sudo $MY_INSTALLER $MY_INSTALL lxappearance
@@ -245,6 +245,16 @@ hyprpm add https://github.com/Duckonaut/split-monitor-workspaces # Add the plugi
 hyprpm enable split-monitor-workspaces # Enable the plugin
 hyprpm reload # Reload the plugins
 hyprpm update
+}
+
+function install_kdeplasma() {
+#KDE Plasma
+sudo $MY_INSTALLER $MY_INSTALL plasma
+echo "Krohnkite: install krohnkite in the KWin scrips settings"
+read -r blank
+case $blank in
+	*) ;;
+esac
 }
 
 function install_main_gui_programs() {
