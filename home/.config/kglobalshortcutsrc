@@ -318,6 +318,9 @@ new-window=Meta+B\tMeta+Shift+B
 [services][gimp.desktop]
 _launch=Meta+Shift+G
 
+[services][io.m51.Gelly.desktop]
+_launch=Meta+Shift+M
+
 [services][nemo.desktop]
 _launch=Meta+F\tMeta+Shift+F
 
