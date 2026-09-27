@@ -1,8 +1,8 @@
-------------------
 ---- MONITORS ----
 ------------------
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
+require("monitors")
 hl.monitor({
 	output = "",
 	mode = "preferred",
@@ -17,14 +17,15 @@ hl.monitor({
 -- Set programs that you use
 local terminal = "alacritty"
 local fileManager = "nemo"
-local menu = "wofi"
+local menu = "wofi -S run"
 local browser = "firefox"
 local musicplayer = "supersonic-desktop"
+local display_config = "nwg-displays"
 local gaps_in_var = 5
 local gaps_out_var = 10
 local gaps_on = "hyprctl keyword general:gaps_in $gaps_in_var; hyprctl keyword general:gaps_out $gaps_out_var"
 local gaps_off = " hyprctl keyword general:gaps_in 0; hyprctl keyword general:gaps_out 0"
-local orange = "rgba(FF7F50FF)"
+-- local orange = "rgba(FF7F50FF)"
 local darkorange = "rgba(D2691EFF)"
 local lightgray = "rgba(FFF8DCFF)"
 local darkgray = "rgba(353535FF)"
@@ -40,7 +41,8 @@ local darkgray = "rgba(353535FF)"
 --
 hl.on("hyprland.start", function()
 	hl.exec_cmd("waybar & hyprpaper")
-	hl.exec_cmd("hyprpm reload -n")
+	-- hl.exec_cmd("hyprpm reload -n")
+	hl.exec_cmd("dunst")
 end)
 
 -------------------------------
@@ -124,24 +126,6 @@ hl.config({
 	},
 })
 
--- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
--- "Smart gaps" / "No gaps when only"
--- uncomment all if you wish to use that.
-hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
-hl.workspace_rule({ workspace = "f[1]", gaps_out = 0, gaps_in = 0 })
-hl.window_rule({
-	name = "no-gaps-wtv1",
-	match = { float = false, workspace = "w[tv1]" },
-	border_size = 0,
-	rounding = 0,
-})
-hl.window_rule({
-	name = "no-gaps-f1",
-	match = { float = false, workspace = "f[1]" },
-	border_size = 0,
-	rounding = 0,
-})
-
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
 	dwindle = {
@@ -216,32 +200,7 @@ hl.device({
 	name = "epic-mouse-v1",
 	sensitivity = -0.5,
 })
--- function M.split_monitor_workspaces()
--- 	if hl.plugin.split_monitor_workspaces ~= nil then
--- 		hl.config({
--- 			plugin = {
--- 				split_monitor_workspaces = {
--- 					count = 10,
--- 					keep_focused = 0,
--- 					enable_notifications = 0,
--- 					enable_persistent_workspaces = 1,
--- 				},
--- 			},
--- 		})
--- 	end
--- end
--- cursor {
---     no_warps = true
--- }
 
--- plugin {
---     split-monitor-workspaces {
---         count = 10
---         keep_focused = 0
---         enable_notifications = 0
---         enable_persistent_workspaces = 1
---     }
--- }
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
@@ -256,16 +215,17 @@ hl.bind(mainMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(display_config))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd(musicplayer))
 hl.bind(mainMod .. " + SHIFT + X", hl.dsp.exec_cmd("power_wofi"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("steam"))
+hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("transmission-gtk"))
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("reaper"))
 hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd("gimp"))
-hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("gtk"))
 hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("obs"))
 hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd("discord"))
-hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("manager"))
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("home"))
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("virtmanager"))
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("weather-home"))
 hl.bind(mainMod .. " + SHIFT + z", hl.dsp.exec_cmd("togglekeyd"))
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("neca"))
 
@@ -275,16 +235,9 @@ hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 
--- Switch workspaces with mainMod + [0-9]
--- Move active window to a workspace with mainMod + SHIFT + [0-9]
-for i = 1, 10 do
-	local key = i % 10 -- 10 maps to key 0
-	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
-end
-
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
@@ -298,10 +251,37 @@ hl.bind("ALT + TAB", hl.dsp.window.cycle_next())
 hl.bind("ALT + TAB", hl.dsp.window.alter_zorder({ mode = "top" }))
 hl.bind("ALT + SHIFT + TAB", hl.dsp.window.cycle_next({ next = "w-1" }))
 hl.bind("ALT + SHIFT + TAB", hl.dsp.window.alter_zorder({ mode = "top" }))
-hl.bind(mainMod .. " + N", hl.dsp.focus({ monitor = "m + 1" }))
-hl.bind(mainMod .. " + P", hl.dsp.focus({ monitor = "m - 1" }))
--- replace this with lua at some point
-hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd("hypr_layout_toggle"))
+hl.bind(mainMod .. " + N", hl.dsp.focus({ monitor = "+1" }))
+hl.bind(mainMod .. " + P", hl.dsp.focus({ monitor = "-1" }))
+
+-- hl.bind(mainMod .. " + Y", function()
+-- 	-- local layouts = { "scrolling", "dwindle", "master", "monocle" }
+-- 	local layouts = { "dwindle", "master" }
+-- 	local workspace = hl.get_active_workspace()
+-- 	if hl.get_active_special_workspace() then
+-- 		workspace = hl.get_active_special_workspace()
+-- 	end
+--
+-- 	local next_layout = "dwindle"
+--
+-- 	if not workspace then
+-- 		return
+-- 	end
+--
+-- 	for i = 1, #layouts do
+-- 		if layouts[i] == workspace.tiled_layout then
+-- 			local next_layout_idx = (i % #layouts) + 1
+-- 			next_layout = layouts[next_layout_idx]
+-- 			break
+-- 		end
+-- 	end
+--
+-- 	if workspace.special then
+-- 		hl.workspace_rule({ workspace = tostring(workspace.name), layout = next_layout })
+-- 	else
+-- 		hl.workspace_rule({ workspace = "name:" .. tostring(workspace.name), layout = next_layout })
+-- 	end
+-- end)
 
 --screenshot
 hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd("hyprshot -m window"))
@@ -338,131 +318,161 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
+-- LICENSE: 0BSD
+-- per monitor workspaces
+local workspaces_per_monitor = 10
+local wrap_around = true
+local function create_workspaces(monitor)
+	for i = 1, workspaces_per_monitor do
+		hl.workspace_rule({
+			workspace = tostring(monitor.id * workspaces_per_monitor + i),
+			monitor = monitor.name,
+			persistent = true,
+			default = (i == 1),
+		})
+	end
+end
+for _, monitor in ipairs(hl.get_monitors()) do
+	create_workspaces(monitor)
+end
+hl.on("monitor.added", create_workspaces)
+
+local function get_active_monitor_id()
+	local monitor = hl.get_active_monitor()
+	return monitor and monitor.id or 0
+end
+
+local function get_relative_workspace_index(forwards)
+	local current_workspace = hl.get_active_workspace()
+	if not current_workspace then
+		return nil
+	end
+	local index = current_workspace.id % workspaces_per_monitor
+	if index == 0 then
+		index = workspaces_per_monitor
+	end
+	-- yandere dev style /s
+	if forwards then
+		index = index + 1
+		if index > workspaces_per_monitor then
+			if wrap_around then
+				index = 1
+			else
+				return nil
+			end
+		end
+	else
+		index = index - 1
+		if index < 1 then
+			if wrap_around then
+				index = workspaces_per_monitor
+			else
+				return nil
+			end
+		end
+	end
+	return index
+end
+
+local function activate_workspace(number)
+	return function()
+		local monitor_id = get_active_monitor_id()
+		hl.dispatch(hl.dsp.focus({ workspace = tostring(monitor_id * workspaces_per_monitor + number) }))
+	end
+end
+
+local function move_to_workspace(number)
+	return function()
+		local monitor_id = get_active_monitor_id()
+		hl.dispatch(
+			hl.dsp.window.move({ workspace = tostring(monitor_id * workspaces_per_monitor + number), follow = true })
+		)
+	end
+end
+
+local function activate_workspace_relative(forwards)
+	return function()
+		local monitor_id = get_active_monitor_id()
+		local index = get_relative_workspace_index(forwards)
+		if not index then
+			return
+		end
+		hl.dispatch(hl.dsp.focus({ workspace = tostring(monitor_id * workspaces_per_monitor + index) }))
+	end
+end
+
+local function move_to_workspace_relative(forwards)
+	return function()
+		local monitor_id = get_active_monitor_id()
+		local index = get_relative_workspace_index(forwards)
+		if not index then
+			return
+		end
+		hl.dispatch(
+			hl.dsp.window.move({ workspace = tostring(monitor_id * workspaces_per_monitor + index), follow = true })
+		)
+	end
+end
+
+for i = 1, math.min(workspaces_per_monitor, 10) do
+	local key = tostring(i % 10)
+	hl.bind(mainMod .. " + " .. key, activate_workspace(i))
+	hl.bind(mainMod .. " + SHIFT + " .. key, move_to_workspace(i))
+end
+hl.bind(mainMod .. " + mouse_up", activate_workspace_relative(true))
+hl.bind(mainMod .. " + mouse_down", activate_workspace_relative(false))
+hl.bind(mainMod .. " + TAB", activate_workspace_relative(true))
+hl.bind(mainMod .. " + SHIFT + TAB", activate_workspace_relative(false))
+hl.bind(mainMod .. " + CTRL + TAB", move_to_workspace_relative(true))
+hl.bind(mainMod .. " + CTRL + SHIFT + TAB", move_to_workspace_relative(false))
+
+hl.bind(mainMod .. " + ESCAPE", hl.dsp.focus({ workspace = "previous" }))
+hl.bind(mainMod .. " + SHIFT + N", hl.dsp.window.move({ monitor = "+1" }))
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.window.move({ monitor = "-1" }))
+
+-- #master layout commands
+hl.bind(mainMod .. " + RETURN", hl.dsp.layout("swapwithmaster master"))
+hl.bind(mainMod .. " + I", hl.dsp.layout("addmaster"))
+hl.bind(mainMod .. " + O", hl.dsp.layout("removemaster"))
+hl.bind(mainMod .. " + SHIFT + J", hl.dsp.layout("swapnext noloop"))
+hl.bind(mainMod .. " + SHIFT + K", hl.dsp.layout("swapprev noloop"))
+hl.bind(mainMod .. " + SHIFT + H", hl.dsp.layout("mfact -0.02"))
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.layout("mfact +0.02"))
+hl.bind(mainMod .. " + R", hl.dsp.layout("orientationnext"))
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.layout("orientationprev"))
+
+-- Toggle gaps_in between 0 and 3 (equivalent to  {3, 3, 3, 3} )
+hl.bind(mainMod .. " + SHIFT + U", function()
+	if hl.get_config("general.gaps_in").top == gaps_in_var then
+		hl.config({ ["general.gaps_in"] = 0 })
+		hl.config({ ["general.gaps_out"] = 0 })
+	else
+		hl.config({ ["general.gaps_in"] = gaps_in_var })
+		hl.config({ ["general.gaps_out"] = gaps_out_var })
+	end
+end)
+hl.bind(mainMod .. " + SHIFT + EQUAL", function()
+	local new_gap = hl.get_config("general.gaps_in").top + 3
+	hl.config({ ["general.gaps_in"] = new_gap })
+	hl.config({ ["general.gaps_out"] = new_gap * 2 })
+end)
+hl.bind(mainMod .. " + SHIFT + MINUS", function()
+	local new_gap = hl.get_config("general.gaps_in").top - 3
+	hl.config({ ["general.gaps_in"] = new_gap })
+	hl.config({ ["general.gaps_out"] = new_gap * 2 })
+end)
+
 -- ###################
 -- ### KEYBINDINGS ###
 -- ###################
---
--- $mainMod = SUPER
---
--- bind = $mainMod, X, killactive,
--- bind = $mainMod SHIFT, Q, exit,
--- bind = $mainMod, T, togglefloating,
--- bind = $mainMod, C, exec, $terminal
--- bind = $mainMod, D, exec, $menu
--- bind = $mainMod, F, exec, $fileManager
--- bind = $mainMod, B, exec, $browser
--- bind = $mainMod SHIFT, M, exec, $musicplayer
--- bind = $mainMod SHIFT, X, exec, power_wofi
--- bind = $mainMod SHIFT, S, exec, steam
--- bind = $mainMod SHIFT, R, exec, reaper
--- bind = $mainMod SHIFT, G, exec, gimp
--- bind = $mainMod SHIFT, T, exec, transmission-gtk
--- bind = $mainMod SHIFT, O, exec, obs
--- bind = $mainMod SHIFT, D, exec, discord
--- bind = $mainMod SHIFT, V, exec, virt-manager
--- bind = $mainMod SHIFT, W, exec, weather-home
--- bind = $mainMod SHIFT, z, exec, togglekeyd
--- bind = $mainMod SHIFT, E, exec, neca
---
--- # Move focus with mainMod + hjkl keys
--- bind = $mainMod, H, movefocus, l
--- bind = $mainMod, L, movefocus, r
--- bind = $mainMod, K, movefocus, u
--- bind = $mainMod, J, movefocus, d
--- bind = $mainMod, H, bringactivetotop
--- bind = $mainMod, L, bringactivetotop
--- bind = $mainMod, K, bringactivetotop
--- bind = $mainMod, J, bringactivetotop
---
--- # Switch workspaces with mainMod + [0-9]
--- bind = $mainMod, 1, split-workspace, 1
--- bind = $mainMod, 2, split-workspace, 2
--- bind = $mainMod, 3, split-workspace, 3
--- bind = $mainMod, 4, split-workspace, 4
--- bind = $mainMod, 5, split-workspace, 5
--- bind = $mainMod, 6, split-workspace, 6
--- bind = $mainMod, 7, split-workspace, 7
--- bind = $mainMod, 8, split-workspace, 8
--- bind = $mainMod, 9, split-workspace, 9
--- bind = $mainMod, 0, split-workspace, 10
---
--- # Move active window to a workspace with mainMod + SHIFT + [0-9]
--- bind = $mainMod SHIFT, 1, split-movetoworkspacesilent, 1
--- bind = $mainMod SHIFT, 2, split-movetoworkspacesilent, 2
--- bind = $mainMod SHIFT, 3, split-movetoworkspacesilent, 3
--- bind = $mainMod SHIFT, 4, split-movetoworkspacesilent, 4
--- bind = $mainMod SHIFT, 5, split-movetoworkspacesilent, 5
--- bind = $mainMod SHIFT, 6, split-movetoworkspacesilent, 6
--- bind = $mainMod SHIFT, 7, split-movetoworkspacesilent, 7
--- bind = $mainMod SHIFT, 8, split-movetoworkspacesilent, 8
--- bind = $mainMod SHIFT, 9, split-movetoworkspacesilent, 9
--- bind = $mainMod SHIFT, 0, split-movetoworkspacesilent, 10
---
--- #general window/workspace commands
--- bind = $mainMod, M, fullscreen
--- bind = $mainMod, space, bringactivetotop
--- bind = ALT ,TAB, cyclenext
--- bind = ALT ,TAB, bringactivetotop
--- bind = ALT SHIFT,TAB, cyclenext, prev
--- bind = ALT SHIFT,TAB, bringactivetotop
--- bind = $mainMod, N, focusmonitor, +1
--- bind = $mainMod, P, focusmonitor, -1
--- bind = $mainMod, Y, exec, hypr_layout_toggle
---
--- # Screenshot a window
--- bind = $mainMod, PRINT, exec, hyprshot -m window
--- # Screenshot a monitor
--- bind = , PRINT, exec, hyprshot -m output
--- # Screenshot a region
--- bind = $shiftMod, PRINT, exec, hyprshot -m region
---
--- #split-monitor-workspaces commands
--- bind = $mainMod, ESCAPE, workspace, previous
--- bind = $mainMod, TAB, split-cycleworkspaces, next
--- bind = $mainMod SHIFT, TAB, split-cycleworkspaces, prev
--- bind = $mainMod SHIFT, N, split-changemonitorsilent, next
--- bind = $mainMod SHIFT, P, split-changemonitorsilent, prev
---
--- #master layout commands
--- bind = $mainMod, RETURN, layoutmsg, swapwithmaster master
--- bind = $mainMod, I, layoutmsg, addmaster
--- bind = $mainMod, O, layoutmsg, removemaster
--- bind = $mainMod SHIFT, J, layoutmsg, swapnext
--- bind = $mainMod SHIFT, K, layoutmsg, swapprev
--- bind = $mainMod SHIFT, H, layoutmsg, mfact -0.02
--- bind = $mainMod SHIFT, L, layoutmsg, mfact +0.02
--- bind = $mainMod, R, layoutmsg, orientationnext
--- bind = $mainMod SHIFT, R, layoutmsg, orientationprev
---
+
 -- #dwindle layout commands
--- bind = $mainMod, RETURN, layoutmsg, movetoroot
--- bind = $mainMod SHIFT, J, layoutmsg, preselect d
--- bind = $mainMod SHIFT, K, layoutmsg, preselect u
--- bind = $mainMod SHIFT, H, layoutmsg, preselect l
--- bind = $mainMod SHIFT, L, layoutmsg, preselect r
--- bind = $mainMod, R, layoutmsg, swapsplit
---
--- #gaps on and off
--- bind = $mainMod, U, exec, $gaps_on
--- bind = $mainMod SHIFT, U, exec, $gaps_off
---
--- # Move/resize windows with mainMod + LMB/RMB and dragging
--- bindm = $mainMod, mouse:272, movewindow
--- bindm = $mainMod, mouse:273, resizewindow
---
--- # Laptop multimedia keys for volume and LCD brightness
--- bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
--- bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
--- bindel = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
--- bindel = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
--- bindel = ,XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+
--- bindel = ,XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-
---
--- # Requires playerctl
--- bindl = , XF86AudioNext, exec, playerctl next
--- bindl = , XF86AudioPause, exec, playerctl play-pause
--- bindl = , XF86AudioPlay, exec, playerctl play-pause
--- bindl = , XF86AudioPrev, exec, playerctl previous
+-- hl.bind(mainMod .. " + RETURN", hl.dsp.layout("movetoroot"))
+-- hl.bind(mainMod .. " + SHIFT + J", hl.dsp.layout("preselect d"))
+-- hl.bind(mainMod .. " + SHIFT + K", hl.dsp.layout("preselect u"))
+-- hl.bind(mainMod .. " + SHIFT + H", hl.dsp.layout("preselect l"))
+-- hl.bind(mainMod .. " + SHIFT + L", hl.dsp.layout("preselect r"))
+-- hl.bind(mainMod .. " + R", hl.dsp.layout("swapsplit"))
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----

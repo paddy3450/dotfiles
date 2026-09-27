@@ -78,7 +78,7 @@ open_menu() {
             if confirm_action; then
                 notify-send "Logging out..."
                 sleep 2
-                command -v hyprctl &>/dev/null && hyprctl dispatch exit 0
+                command hyprctl dispatch 'hl.dsp.exit()'
             fi
             ;;
     esac

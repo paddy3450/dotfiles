@@ -32,9 +32,11 @@
 
     // Modules configuration
     "hyprland/workspaces": {
-        "disable-scroll": true,
+        "disable-scroll": false,
         "all-outputs": false,
-        "warp-on-scroll": false,
+        "warp-on-scroll": true,
+        "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({workspace=\"e+1\"})' ",
+        "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({workspace=\"e-1\"})' ",
         "format": "{icon}",
         "format-icons": {
             "1": "1",
@@ -57,6 +59,16 @@
             "18": "8",
             "19": "9",
             "20": "10",
+            "21": "1",
+            "22": "2",
+            "23": "3",
+            "24": "4",
+            "25": "5",
+            "26": "6",
+            "27": "7",
+            "28": "8",
+            "29": "9",
+            "30": "10",
             "urgent": "",
             "focused": "",
             "default": ""
@@ -217,7 +229,7 @@
                 "reboot": "reboot now",
                 "suspend": "systemctl suspend",
                 "hibernate": "systemctl hibernate",
-                "exit": "hyprctl dispatch exit"
+                "exit": "loginctl terminate-user ''"
 		}
     }
 }
