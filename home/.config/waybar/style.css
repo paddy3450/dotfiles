@@ -57,8 +57,8 @@ tooltip label {
 #workspaces {
     margin: 0 0px;
     color: @lightgray;
-    margin-top: 2;
-    margin-bottom: 2;
+    margin-top: 0;
+    margin-bottom: 0;
     margin-left: 2;
     margin-right: 2;
 }
@@ -67,9 +67,9 @@ button {
     border: none;
     background-color: @black-transparent-2;
     color: @lightgray;
-    margin: 2;
-    margin-left: 5;
-    margin-right: 5;
+    margin: 1;
+    margin-left: 3;
+    margin-right: 3;
 }
 
 button:hover {
@@ -78,7 +78,7 @@ button:hover {
 }
 
 #workspaces button {
-    padding: 0 5px;
+    padding: 0 3px;
     background: @black-transparent-1;
     color: @darkgray;
 }
