@@ -152,7 +152,7 @@
     },
     "memory": {
         "justify": "center",
-        "format": "\n{used}"
+        "format": "\n{used:0.2}"
     },
     "temperature": {
         "justify": "center",
